@@ -13,20 +13,25 @@
 }
 
 @layer components {
-  
-  .container {
-    @apply mx-auto max-w-100 px-4 ;
-  }
-
   .tag-list > *,
   .tag {
-    @apply inline-block border-2 rounded-xl py-1 px-2 m-1 bg-slate-600 text-sm bg-gradient-to-br from-purple-500/10 via-transparent to-transparent;
+    @apply m-1 inline-block border-1 px-2 py-1 font-mono text-sm;
+  }
+
+    .tag-list > *,
+  .tag {
+    @apply m-1 inline-block border-1 px-2 py-1 font-mono text-sm;
+  }
+
+    .tag-list-dark > *,
+  .tag-dark {
+    @apply border-zinc-400;
   }
 }
 
 .clip-slant-right {
-            clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
-        }
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
 
 html,
 body {
@@ -154,5 +159,333 @@ body {
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Grid Dots / Decals */
+  .dots-decal {
+    background-image: radial-gradient(
+      circle,
+      currentColor 1px,
+      transparent 1px
+    );
+    background-size: 8px 8px;
+    width: 40px;
+    height: 24px;
+  }
+
+  .pat-micro-dots {
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+  .pat-fine-diagonal-stripes {
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.06) 0,
+      rgba(255, 255, 255, 0.06) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+  }
+  .pat-micro-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+  .pat-corner-gradient {
+    background-image: radial-gradient(
+      circle at 0 0,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 70%
+    );
+  }
+  .pat-horizontal-slats {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 19px,
+      rgba(255, 255, 255, 0.08) 19px,
+      rgba(255, 255, 255, 0.08) 20px
+    );
+  }
+  .pat-concentric-circles {
+    background: repeating-radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.03) 0,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 15px
+    );
+  }
+  .pat-thick-diagonal-stripes {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.05) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 20px 20px;
+  }
+  .pat-split-grid {
+    background:
+      linear-gradient(90deg, #0a0a0a 50%, transparent 50%),
+      linear-gradient(rgba(255, 255, 255, 0.05) 50%, transparent 50%);
+    background-size: 10px 10px;
+  }
+  .pat-bipolar-dots {
+    background:
+      radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px),
+      radial-gradient(
+        circle at 0 0,
+        rgba(255, 255, 255, 0.3) 1px,
+        transparent 1px
+      );
+    background-size: 15px 15px;
+  }
+  .pat-reverse-stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 5px,
+      rgba(255, 255, 255, 0.02) 5px,
+      rgba(255, 255, 255, 0.02) 10px
+    );
+  }
+  .pat-horizontal-scanlines {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+  }
+  .pat-polka-dots {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.08) 15%,
+      transparent 16%
+    );
+    background-size: 16px 16px;
+    background-position: 8px 8px;
+  }
+  .pat-vertical-pinstripes {
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.03) 10px,
+      rgba(255, 255, 255, 0.03) 11px
+    );
+  }
+  .pat-dual-radial {
+    background:
+      radial-gradient(
+        circle at 100% 100%,
+        rgba(255, 255, 255, 0.05) 0,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(255, 255, 255, 0.02) 0,
+        transparent 40%
+      );
+  }
+  .pat-hex-mesh {
+    background-image:
+      linear-gradient(
+        30deg,
+        rgba(255, 255, 255, 0.02) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        rgba(255, 255, 255, 0.02) 87.5%,
+        rgba(255, 255, 255, 0.02)
+      ),
+      linear-gradient(
+        150deg,
+        rgba(255, 255, 255, 0.02) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        rgba(255, 255, 255, 0.02) 87.5%,
+        rgba(255, 255, 255, 0.02)
+      ),
+      linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0.03) 25%,
+        transparent 25.5%,
+        transparent 75%,
+        rgba(255, 255, 255, 0.03) 75.5%,
+        rgba(255, 255, 255, 0.03)
+      ),
+      linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.03) 25%,
+        transparent 25.5%,
+        transparent 75%,
+        rgba(255, 255, 255, 0.03) 75.5%,
+        rgba(255, 255, 255, 0.03)
+      );
+    background-size: 40px 70px;
+  }
+  .pat-diamond-grid {
+    background:
+      linear-gradient(45deg, #0f0f0f 25%, transparent 25%),
+      linear-gradient(-45deg, #0f0f0f 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #0f0f0f 75%),
+      linear-gradient(-45deg, transparent 75%, #0f0f0f 75%);
+    background-size: 20px 20px;
+  }
+  .pattern-concrete {
+    background-color: #eaeaea;
+    background-image:
+      radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.01) 0,
+        rgba(0, 0, 0, 0.01) 1px,
+        transparent 1px,
+        transparent 10px
+      );
+    background-size:
+      30px 30px,
+      12px 12px;
+  }
+
+  .pattern-paper-grid {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Textures & Background structures */
+  .pattern-stripes {
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.02) 0,
+      rgba(255, 255, 255, 0.02) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+  }
+  .pattern-hex {
+    background-image:
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 255, 255, 0.03) 2px,
+        transparent 2px
+      ),
+      linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .pattern-dense-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 15px 15px;
+  }
+  /* Industrial Hazard Tape Patterns */
+  .hazard-bar {
+    height: 6px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #ffffff,
+      #ffffff 10px,
+      #050508 10px,
+      #050508 20px
+    );
+    opacity: 0.8;
+  }
+  .hazard-bar-inverted {
+    height: 6px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #000000,
+      #000000 10px,
+      #ffffff 10px,
+      #ffffff 20px
+    );
+  }
+  .hazard-bar-thin {
+    height: 4px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #a1a1aa,
+      #a1a1aa 8px,
+      #050508 8px,
+      #050508 16px
+    );
+    opacity: 0.6;
+  }
+
+  /* CSS barcode generator class */
+  .kojima-barcode {
+    background: repeating-linear-gradient(
+      90deg,
+      #000,
+      #000 2px,
+      transparent 2px,
+      transparent 4px,
+      #000 4px,
+      #000 5px,
+      transparent 5px,
+      transparent 8px
+    );
+    width: 80px;
+    height: 24px;
+  }
+  .kojima-barcode-white {
+    background: repeating-linear-gradient(
+      90deg,
+      #fff,
+      #fff 2px,
+      transparent 2px,
+      transparent 4px,
+      #fff 4px,
+      #fff 5px,
+      transparent 5px,
+      transparent 8px
+    );
+    width: 80px;
+    height: 24px;
+  }
+
+  /* 45-Degree Chamfered Cuts */
+  .clip-header {
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+  }
+  .clip-corner {
+    clip-path: polygon(
+      0px 16px,
+      16px 0px,
+      100% 0px,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      0px 100%
+    );
+  }
+  .clip-corner-sm {
+    clip-path: polygon(
+      0px 8px,
+      8px 0px,
+      100% 0px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      0px 100%
+    );
+  }
+  .clip-corner-xs {
+    clip-path: polygon(
+      0px 4px,
+      4px 0px,
+      100% 0px,
+      100% calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      0px 100%
+    );
   }
 }

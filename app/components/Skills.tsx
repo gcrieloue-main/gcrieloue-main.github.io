@@ -4,11 +4,11 @@ import Title from "./Title";
 
 export const Skills = () => {
   return (
-    <div className="flex h-full flex-col">
-      <Title level="h2" icon={<ShieldCheck />}>
+    <div className="pat-10 flex h-full flex-col">
+      <Title level="h2" icon={<ShieldCheck />} subtitle="SECTION_02_SKILLS">
         Compétences
       </Title>
-      <div className="flex flex-1 flex-col justify-between gap-10 rounded-xl bg-white/10 p-4">
+      <div className="flex flex-1 flex-col justify-between gap-10 rounded-xl p-4">
         <article id="skills">
           <div>
             <h3 className="pb-2 text-sm">Langages</h3>

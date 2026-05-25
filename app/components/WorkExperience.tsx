@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { FC, PropsWithChildren } from "react";
+import SubTitle from "./SubTitle";
 
 interface WorkExperienceProps {
   skills: string[];
@@ -17,40 +18,34 @@ export const WorkExperience: FC<PropsWithChildren<WorkExperienceProps>> = ({
 }) => {
   return (
     <motion.article
-      className="workExperience bg-white/10 rounded-xl width-full"
+      className="workExperience width-full rounded-xl"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1, delay: 0.1 }}
     >
-      <header className="flex gap-5 m-2 bg-white/10 p-2 rounded-md">
-        <div className="content-center">
-          {logoSrc && (
-            <img
-              className="rounded-sm"
-              src={logoSrc}
-              alt={title}
-              width="25px"
-              height="25px"
-            />
-          )}
-        </div>
-        <div>
-          {" "}
-          <h3 className="flex gap-2 items-center text-xl font-semibold text-gray-100">
-            {title}
-          </h3>
-          <span className="font-semibold text-sm text-gray-300 uppercase">
-            {date}
-          </span>
-        </div>
-      </header>
+      <SubTitle
+        level="h3"
+        subTitle={date}
+        icon={
+          <img
+            className="rounded-sm"
+            src={logoSrc}
+            alt={title}
+            width="25px"
+            height="25px"
+          />
+        }
+        alternative="light"
+      >
+        {title}
+      </SubTitle>
 
-      <div className="prose dark:prose-invert px-4">
-        <div>
-          <div className="text-gray-300">{children}</div>
+      <div className="">
+        <div className="prose prose-headings:font-semibold prose-p:text-sm prose-ul:text-sm prose-p:leading-relaxed prose-p:text-zinc-800 prose-headings:text-zinc-800 px-4">
+          <div>{children}</div>
           <h4>Envir. Technique :</h4>
-          <ul className="tag-list">
+          <ul className="tag-list tag-list-dark">
             {skills.map((skill) => (
               <li key={skill} dangerouslySetInnerHTML={{ __html: skill }} />
             ))}

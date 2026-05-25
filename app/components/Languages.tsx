@@ -20,21 +20,21 @@ export const Languages = () => {
   return (
     <article>
       <div>
-        <div className="flex rounded-xl bg-white/10">
+        <div className="clip-corner-sm flex border-1 border-zinc-700 bg-black/10 text-zinc-300">
           {languages.map(({ flag, text }, index) => (
             <div
               key={text}
               className={twMerge(
-                "group flex flex-1 items-center gap-2 rounded-l-xl",
+                "group flex flex-1 items-center gap-2",
                 index !== languages.length - 1
-                  ? "clip-slant-right mr-2 bg-white/20 p-2"
+                  ? "clip-slant-right mr-2 bg-white/10 p-2"
                   : "",
               )}
             >
               <span className="mx-2 flex-shrink-0 overflow-hidden rounded-xs saturate-70 transition-all group-hover:saturate-100">
                 {flag}
               </span>
-              <span className="text-sm text-gray-100">{text}</span>
+              <span className="text-sm">{text}</span>
             </div>
           ))}
         </div>

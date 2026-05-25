@@ -37,53 +37,14 @@ export const About = () => {
 
   return (
     <div className="flex h-full flex-col">
-      <Title level="h2" icon={<User />}>
+      <Title level="h2" icon={<User />} subtitle="SECTION_01_ABOUT_ME">
         À propos de moi
       </Title>
-      <div className="flex flex-1 justify-between gap-10 rounded-xl bg-white/10 p-4">
+      <div className="flex flex-1 justify-between gap-10 rounded-xl border-1 border-zinc-900 p-4">
         <article id="about" className="about">
           <div className="flex flex-col gap-8 text-white">
-            <motion.div
-              className="flex flex-wrap gap-4"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <motion.div
-                className="flex aspect-2/1 h-25 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center"
-                variants={itemVariants}
-              >
-                <p className="text-sm font-medium tracking-wide uppercase opacity-80">
-                  Freelance IT
-                </p>
-                <p className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-xl font-bold text-transparent">
-                  Full-Stack
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="flex aspect-square h-25 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 hover:scale-105"
-                variants={itemVariants}
-              >
-                <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">
-                  BAC
-                </span>
-                <span className="text-3xl font-black">+5</span>
-              </motion.div>
-
-              <motion.div
-                className="flex aspect-square h-25 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 hover:scale-105"
-                variants={itemVariants}
-              >
-                <span className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase">
-                  Années XP
-                </span>
-                <span className="text-3xl font-black">15</span>
-              </motion.div>
-            </motion.div>
-            <div className="mr-4 flex flex-row gap-10">
-              <div className="flex flex-col gap-2 rounded-lg border-1 border-slate-500/30 bg-black/20 p-4 text-sm text-gray-300">
+            <div className="flex flex-row gap-10">
+              <div className="pattern-stripes flex flex-col gap-2 rounded-lg border-slate-500/30 bg-black/20 p-4 text-sm text-gray-300">
                 <p>Je suis Gilles CRIELOUE, Ingénieur logiciel.</p>
                 <p>
                   Je suis détenteur d'un master 2 en architectures logicielles,
@@ -94,7 +55,15 @@ export const About = () => {
                   Java/Kotlin et avec les frameworks Javascript tels que React.
                 </p>
               </div>
-              <div className="flex flex-col justify-center space-y-4">
+            </div>
+            <motion.div
+              className="flex flex-wrap gap-4 md:px-4"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <div className="flex grow flex-col justify-center space-y-4">
                 <div className="space-y-1">
                   <h3 className="text-xs font-bold tracking-tighter text-gray-500 uppercase">
                     Disponibilité
@@ -132,7 +101,45 @@ export const About = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+              <div className="flex flex-wrap justify-center gap-4">
+                <motion.div
+                  className="clip-corner-sm flex aspect-2/1 h-25 flex-col items-center justify-center border p-6 text-center max-md:h-20"
+                  variants={itemVariants}
+                >
+                  <div className="pat-micro-grid absolute inset-0 opacity-20"></div>
+                  <p className="text-sm font-medium tracking-wide uppercase opacity-80">
+                    Freelance IT
+                  </p>
+                  <p className="text-xl font-bold text-transparent text-white max-md:text-lg">
+                    Full-Stack
+                  </p>
+                </motion.div>
+                <motion.div
+                  className="clip-corner-sm flex aspect-square h-25 flex-col items-center justify-center border hover:scale-105 max-md:h-20"
+                  variants={itemVariants}
+                >
+                  <div className="pat-micro-grid absolute inset-0 opacity-20"></div>
+                  <span className="text-[10px] font-bold tracking-widest text-zinc-300 uppercase">
+                    BAC
+                  </span>
+                  <span className="text-3xl font-black max-md:text-2xl">
+                    +5
+                  </span>
+                </motion.div>
+                <motion.div
+                  className="clip-corner-sm flex aspect-square h-25 flex-col items-center justify-center border hover:scale-105 max-md:h-20"
+                  variants={itemVariants}
+                >
+                  <div className="pat-micro-grid absolute inset-0 opacity-20"></div>
+                  <span className="text-[10px] font-bold tracking-widest text-zinc-300 uppercase">
+                    Années XP
+                  </span>
+                  <span className="text-3xl font-black max-md:text-2xl">
+                    15
+                  </span>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </article>
       </div>

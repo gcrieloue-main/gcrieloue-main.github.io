@@ -1,14 +1,18 @@
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
+import Title from "./Title";
 
 export const Education = () => {
   return (
-    <>
-      <h2 className="mb-2 flex gap-2 text-lg uppercase">
-        <GraduationCap />
+    <div className="">
+      <Title
+        level="h2"
+        icon={<GraduationCap />}
+        subtitle="SECTION_03_EDUCATION"
+      >
         Formation
-      </h2>
-      <div className="flex justify-between gap-10 rounded-xl bg-white/10 p-4">
+      </Title>
+      <div className="flex justify-between gap-10 p-4">
         <motion.article
           id="education"
           initial={{ opacity: 0 }}
@@ -32,12 +36,12 @@ export const Education = () => {
             </div>
           </div>
         </motion.article>
-        <div className="flex rounded-xl bg-white/10 max-lg:hidden">
-          <h3 className="text-vertical mr-2 max-w-40 rounded-xl border-r-2 bg-white/5 p-1 text-center uppercase [writing-mode:vertical-rl]">
-            Certifications
+        <div className="flex rounded-xl max-lg:hidden">
+          <h3 className="text-mono text-vertical clip-corner-sm mr-2 max-w-40 border-r-2 border-zinc-700 bg-white/5 p-1 text-center text-sm uppercase [writing-mode:vertical-rl]">
+            // Certifications
           </h3>
           <div className="grid grid-cols-2 gap-2">
-            <div className="flex max-w-40 flex-col items-center gap-3 p-2">
+            <div className="clip-corner-sm flex max-w-40 flex-col items-center gap-3 border-1 border-zinc-800 bg-black/10 p-2 grayscale">
               <img
                 src="//images.ctfassets.net/oamir411dfuu/4UybNQnbhP8T8ePXL5suhn/ae6636795ad6ce74fd7ea6b440fc1c8f/AWS-Developer-Associate-2020.png"
                 alt="AWS-Developer-Associate-2020"
@@ -50,7 +54,7 @@ export const Education = () => {
                 </a>
               </span>
             </div>
-            <div className="flex max-w-40 flex-col items-center gap-3 p-2">
+            <div className="clip-corner-sm flex max-w-40 flex-col items-center gap-3 border-1 border-zinc-800 bg-black/10 p-2 grayscale">
               <img
                 src="//images.ctfassets.net/oamir411dfuu/1IqY5wK96YNf9svZ7kC0rq/1fbc1c89477fb18e4218606303738e31/Oracle_Associates_Badge__1_.png"
                 alt="Oracle-Certification-badge OC-Associate"
@@ -66,6 +70,6 @@ export const Education = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
