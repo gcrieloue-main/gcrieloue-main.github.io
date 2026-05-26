@@ -1,6 +1,6 @@
 import { BriefcaseBusiness } from "lucide-react";
 import { WorkExperience } from "~/components/WorkExperience";
-import Title from "./Title";
+import Title from "./ui/Title";
 
 export function WorkExperiences() {
   return (

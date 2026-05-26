@@ -19,24 +19,55 @@ const FR = fr;
 export const Languages = () => {
   return (
     <article>
-      <div>
-        <div className="clip-corner-sm flex border-1 border-zinc-700 bg-black/10 text-zinc-300">
-          {languages.map(({ flag, text }, index) => (
-            <div
-              key={text}
-              className={twMerge(
-                "group flex flex-1 items-center gap-2",
-                index !== languages.length - 1
-                  ? "clip-slant-right mr-2 bg-white/10 p-2"
-                  : "",
-              )}
-            >
-              <span className="mx-2 flex-shrink-0 overflow-hidden rounded-xs saturate-70 transition-all group-hover:saturate-100">
-                {flag}
-              </span>
-              <span className="text-sm">{text}</span>
+      <div className="flex max-w-80 flex-col gap-3">
+        <div className="border-zinc-850 clip-corner-xs flex items-center justify-between border bg-zinc-950/80 p-3 transition-colors duration-300 hover:border-zinc-700">
+          <div className="flex min-w-0 items-center space-x-3">
+            <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.8)]"></div>
+            <div className="min-w-0">
+              <div className="mono truncate text-[10px] leading-tight font-bold text-white">
+                FRANÇAIS
+              </div>
+              <div className="mono text-[8px] leading-none text-zinc-500 uppercase">
+                NATIVE_FLOW
+              </div>
             </div>
-          ))}
+          </div>
+          <div className="flex flex-shrink-0 items-center space-x-4 pl-3">
+            <div className="flex gap-0.5">
+              <div className="h-1 w-3 bg-white"></div>
+              <div className="h-1 w-3 bg-white"></div>
+              <div className="h-1 w-3 bg-white"></div>
+              <div className="h-1 w-3 bg-white"></div>
+            </div>
+            <span className="mono text-[10px] font-bold text-white">
+              100% OK
+            </span>
+          </div>
+        </div>
+
+        <div className="border-zinc-850 clip-corner-xs flex items-center justify-between border bg-zinc-950/80 p-3 transition-colors duration-300 hover:border-zinc-700">
+          <div className="flex min-w-0 items-center space-x-3">
+            <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-600"></div>
+            <div className="min-w-0">
+              <div className="mono truncate text-[10px] leading-tight font-bold text-white">
+                ANGLAIS
+              </div>
+              <div className="mono text-[8px] leading-none text-zinc-500 uppercase">
+                TOEIC_SCORE: 820
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-shrink-0 items-center space-x-4 pl-3">
+            <div className="flex gap-0.5">
+              <div className="h-1 w-3 bg-white"></div>
+              <div className="h-1 w-3 bg-white"></div>
+              <div className="h-1 w-3 bg-white"></div>
+              <div className="h-1 w-3 bg-zinc-800"></div>
+            </div>
+            <span className="mono text-[10px] font-bold text-zinc-400">
+              82% EFF
+            </span>
+          </div>
         </div>
       </div>
     </article>

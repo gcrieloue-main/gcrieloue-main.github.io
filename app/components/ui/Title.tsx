@@ -5,6 +5,8 @@ type TitleLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 interface TitleProps {
   children: React.ReactNode;
   subtitle?: string;
+  decorationText?: string;
+   decorationTextSecondary?: string;
   level?: TitleLevel;
   className?: string;
   icon?: React.ReactNode;
@@ -18,6 +20,8 @@ const Title = ({
   className = "",
   icon,
   alternative = "dark",
+  decorationText = "SAMPLE_RATE: 250Hz",
+  decorationTextSecondary = "LIVE_FEED: STABLE",
 }: TitleProps) => {
   const Tag = level;
 
@@ -30,7 +34,7 @@ const Title = ({
           <span className="mono bg-black px-2.5 py-1 text-[9px] font-extrabold tracking-[0.2em] text-nowrap text-white">
             [ {subtitle} ]
           </span>
-          <span className="mono text-[9px] font-black tracking-widest text-zinc-400 uppercase">
+          <span className="mono text-[9px] font-black tracking-widest text-zinc-400 uppercase select-none">
             REF: PROT_DEPT_001
           </span>
         </div>
@@ -39,7 +43,7 @@ const Title = ({
           {children}
         </Tag>
 
-        <div className="mono mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-200 pt-4 text-[10px] text-zinc-500">
+        <div className="mono mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-200 pt-4 text-[10px] text-zinc-500 select-none">
           <div>
             SÉCURITÉ :{" "}
             <span className="font-extrabold text-black">
@@ -58,7 +62,7 @@ const Title = ({
     );
 
   return (
-    <div className="border-zinc-850 mb-10 flex items-end justify-between border-b pb-4">
+    <div className="border-zinc-850 mb-10 flex items-end justify-between space-x-3 border-b pb-4">
       <div className="space-y-1">
         <span className="mono text-xs font-bold tracking-widest text-nowrap text-white uppercase">
           [ {subtitle} ]
@@ -67,12 +71,12 @@ const Title = ({
           {children}
         </Tag>
       </div>
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-3 select-none">
         <span className="mono border border-zinc-700 px-2 py-0.5 text-[8px] text-zinc-400">
-          SAMPLE_RATE: 250Hz
+          {decorationText}
         </span>
         <span className="mono hidden text-[10px] text-zinc-500 sm:block">
-          LIVE_FEED: STABLE
+          {decorationTextSecondary}
         </span>
       </div>
     </div>

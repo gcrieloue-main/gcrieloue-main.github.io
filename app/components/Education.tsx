@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
-import Title from "./Title";
+import Title from "./ui/Title";
 
 export const Education = () => {
   return (
@@ -9,6 +9,8 @@ export const Education = () => {
         level="h2"
         icon={<GraduationCap />}
         subtitle="SECTION_03_EDUCATION"
+        decorationText="CHECKING"
+        decorationTextSecondary="ACADEMIC_RECORD"
       >
         Formation
       </Title>
@@ -21,17 +23,47 @@ export const Education = () => {
           transition={{ duration: 1 }}
         >
           <div className="w-full px-2 py-1">
-            <div className="prose dark:prose-invert">
-              <ul>
-                <li>
-                  2008 - 2010 :{" "}
-                  <strong>Master ALMA (Architectures Logicielles)</strong> à
-                  l'Université de Nantes
+            <div>
+              <ul className="space-y-4 pl-4">
+                <li className="flex items-start space-x-3">
+                  <span className="mono mt-1 flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
+                    ✓
+                  </span>
+                  <div>
+                    <strong className="block tracking-tight uppercase">
+                      2008 - 2010 : Master ALMA (Architectures Logicielles)
+                    </strong>
+                    <span className="text-xs text-zinc-300">
+                      à l'Université de Nantes
+                    </span>
+                  </div>
                 </li>
-                <li>
-                  2007 - 2008 : Licence Informatique à l'Université de Nantes
+                <li className="flex items-start space-x-3">
+                  <span className="mono mt-1 flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
+                    ✓
+                  </span>
+                  <div>
+                    <strong className="block tracking-tight uppercase">
+                      2007 - 2008 : Licence Informatique
+                    </strong>
+                    <span className="text-xs text-zinc-300">
+                      à l'Université de Nantes
+                    </span>
+                  </div>
                 </li>
-                <li>2005 - 2007 : DUT Informatique à l'Université de Nantes</li>
+                <li className="flex items-start space-x-3">
+                  <span className="mono mt-1 flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
+                    ✓
+                  </span>
+                  <div>
+                    <strong className="block tracking-tight uppercase">
+                      2005 - 2007 : DUT Informatique
+                    </strong>
+                    <span className="text-xs text-zinc-300">
+                      à l'Université de Nantes
+                    </span>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
