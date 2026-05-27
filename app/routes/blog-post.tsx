@@ -1,0 +1,140 @@
+import type { Route } from "./+types/blog-post";
+import { useStore } from "~/api";
+import { useEffect } from "react";
+import { Link, useParams } from "react-router";
+import { FileText } from "lucide-react";
+import Title from "~/components/ui/Title";
+import { HeaderTitle } from "~/components/HeaderTitle";
+
+export function meta({ data }: Route.MetaArgs) {
+  return [
+    { title: `Gilles CRIELOUE - Article` },
+    { name: "description", content: "Lecture d'un article de Gilles CRIELOUE" },
+  ];
+}
+
+export default function BlogPost() {
+  const { slug } = useParams();
+  const { article, loading, fetchArticle } = useStore();
+
+  useEffect(() => {
+    if (slug) {
+      void fetchArticle(slug);
+    }
+  }, [slug, fetchArticle]);
+
+  return (
+    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+      <div className="grain"></div>
+      <HeaderTitle
+        activeTab="blog"
+        badgeText="ARTICLE"
+        bracketText="[ READING_STREAM ]"
+        titleText="LECTURE ARTICLE"
+        specLine1="DECRYPT: COMPLETE"
+        specLine2="OUTPUT: SECURE_VIEW"
+        specBold="SINGLE RECORD"
+      />
+
+      <div className="hazard-bar-inverted"></div>
+
+      <main className="pattern-dense-grid min-h-[60vh] py-14">
+        <section className="container mx-auto px-5 max-md:px-2 max-w-4xl">
+          <div className="mb-10">
+            <Link
+              to="/blog"
+              className="mono text-xs font-black tracking-widest text-zinc-400 uppercase hover:text-white flex items-center gap-2 group w-fit"
+            >
+              <span className="text-sm transition-transform group-hover:-translate-x-1">←</span> [ BACK_TO_BLOG ]
+            </Link>
+          </div>
+
+          {loading ? (
+            <div className="flex h-64 flex-col items-center justify-center space-y-4">
+              <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></span>
+              <p className="mono text-xs text-zinc-400 animate-pulse">
+                RETRIEVING_ARTICLE_DATA...
+              </p>
+            </div>
+          ) : !article ? (
+            <div className="clip-corner flex h-64 flex-col items-center justify-center border border-dashed border-zinc-700 bg-zinc-900/50 p-6 text-center">
+              <p className="mono text-sm text-zinc-400">
+                ERROR: ARTICLE_NOT_FOUND (SLUG: {slug})
+              </p>
+              <Link
+                to="/blog"
+                className="mono mt-4 cursor-pointer border border-zinc-400 px-3 py-1.5 text-xs font-bold text-zinc-300 hover:bg-white hover:text-black transition-colors"
+              >
+                [ RETURN_TO_BLOG ]
+              </Link>
+            </div>
+          ) : (
+            <article className="clip-corner border border-zinc-800 bg-zinc-900/40 p-8 md:p-12 relative">
+              <div className="pat-micro-grid absolute inset-0 opacity-10"></div>
+              
+              <div className="relative z-10">
+                <div className="mb-6 flex flex-wrap items-center gap-3">
+                  <span className="mono bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 text-[9px] font-bold tracking-widest text-amber-400">
+                    PUBLISHED // {article.date}
+                  </span>
+                  <span className="mono text-[9px] text-zinc-500 font-bold select-none">
+                    REF: {article.sys.id.toUpperCase()}
+                  </span>
+                </div>
+
+                <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-8 border-b border-zinc-800 pb-6 leading-tight">
+                  {article.title}
+                </h1>
+
+                <div className="prose prose-invert max-w-none font-sans leading-relaxed text-zinc-300 
+                  prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-white
+                  prose-h4:text-zinc-200 prose-h5:text-zinc-300 prose-h6:text-zinc-400
+                  prose-a:text-amber-400 hover:prose-a:text-amber-300 prose-a:transition-colors
+                  prose-strong:text-white prose-strong:font-bold
+                  prose-code:text-amber-300 prose-code:bg-zinc-800/40 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+                  prose-pre:bg-zinc-950/80 prose-pre:border prose-pre:border-zinc-850 prose-pre:p-4 prose-pre:rounded-md
+                  prose-img:rounded-md prose-img:border prose-img:border-zinc-800
+                  prose-hr:border-zinc-800"
+                >
+                  <div dangerouslySetInnerHTML={{ __html: article.content }} />
+                </div>
+
+                <div className="mt-14 pt-8 border-t border-zinc-800 flex justify-between items-center select-none">
+                  <div className="mono text-[9px] text-zinc-600 leading-tight">
+                    <div>DATA STREAM SECURED // VALUABLE RECORD</div>
+                    <div>NEURAL-TEK DECRYPTER v1.0.4</div>
+                  </div>
+                  <div className="kojima-barcode-white opacity-20"></div>
+                </div>
+              </div>
+            </article>
+          )}
+        </section>
+      </main>
+
+      <div className="hazard-bar"></div>
+
+      <footer className="p-4 py-8 text-zinc-500 bg-zinc-950">
+        <div className="container mx-auto px-5 max-md:px-2 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <ul className="space-y-2 text-xs">
+            <li className="flex items-center gap-3">
+              <span className="text-zinc-600">Email:</span>
+              <a href="mailto:gilles@crieloue.fr" className="underline hover:text-zinc-300 transition-colors">
+                gilles@crieloue.fr
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-zinc-600">Web:</span>
+              <a href="http://gilles.crieloue.fr" className="underline hover:text-zinc-300 transition-colors">
+                gilles.crieloue.fr
+              </a>
+            </li>
+          </ul>
+          <div className="mono text-[9px] text-zinc-600">
+            SYSTEM VERSION: B.02 // COMPILED: 2026
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

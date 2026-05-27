@@ -1,4 +1,4 @@
-import { useStore } from "~/store";
+import { useStore } from "~/api";
 import { useEffect } from "react";
 import Title from "./ui/Title";
 import { User } from "lucide-react";

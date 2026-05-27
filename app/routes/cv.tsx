@@ -4,53 +4,31 @@ import { Skills } from "~/components/Skills";
 import { Education } from "~/components/Education";
 import { motion } from "framer-motion";
 import { WorkExperiences } from "~/components/WorkExperiences";
+import { HeaderTitle } from "~/components/HeaderTitle";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Gilles CRIELOUE - CV" },
-    { name: "description", content: "Gilles CRIELOUE - CV" },
+    { title: "Gilles CRIELOUE" },
+    {
+      name: "description",
+      content: "Gilles CRIELOUE - Développeur full-stack senior",
+    },
   ];
 }
-
-const HeaderTitle = () => (
-  <section className="pattern-master-light relative w-full overflow-hidden border-b border-zinc-200 bg-white py-16 text-zinc-900">
-    <div className="container mx-auto px-5 max-md:px-2">
-      <div className="mb-8 flex flex-col items-start justify-between border-b-2 border-black pb-6 md:flex-row md:items-end">
-        <div className="space-y-2">
-          <div className="flex items-center space-x-3">
-            <span className="mono bg-black px-2 py-0.5 text-[9px] font-bold tracking-widest text-white">
-              PROFILE
-            </span>
-            <span className="mono text-xs font-bold tracking-widest text-zinc-600 uppercase">
-              [ FULL_STACK_DEVELOPER ]
-            </span>
-          </div>
-          <h2 className="text-4xl font-extrabold tracking-tighter text-black uppercase">
-            GILLES CRIELOUE
-          </h2>
-        </div>
-
-        <div className="mt-4 flex items-center space-x-6 select-none md:mt-0">
-          <div className="dots-decal text-black opacity-30"></div>
-          <div className="mono text-right text-[9px] leading-tight text-zinc-500">
-            <div>MODEL SPECIFICATION: TYPE-01</div>
-            <div>SPEC_DIR: //05.B25.2026</div>
-            <div className="font-extrabold text-black uppercase">
-              VALUABLE ASSET
-            </div>
-          </div>
-          <div className="kojima-barcode"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 export default function CV() {
   return (
     <div className="min-h-screen">
       <div className="grain"></div>
-      <HeaderTitle />
+      <HeaderTitle
+        activeTab="cv"
+        badgeText="PROFILE"
+        bracketText="[ FULL_STACK_DEVELOPER ]"
+        titleText="GILLES CRIELOUE"
+        specLine1="MODEL SPECIFICATION: TYPE-01"
+        specLine2="SPEC_DIR: //05.B25.2026"
+        specBold="VALUABLE ASSET"
+      />
 
       <div className="hazard-bar-inverted"></div>
 
