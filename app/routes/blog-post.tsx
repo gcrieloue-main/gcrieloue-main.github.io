@@ -75,7 +75,7 @@ export default function BlogPost() {
               
               <div className="relative z-10">
                 <div className="mb-6 flex flex-wrap items-center gap-3">
-                  <span className="mono bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 text-[9px] font-bold tracking-widest text-amber-400">
+                  <span className="mono bg-white/10 border border-white/20 px-2 py-0.5 text-[9px] font-bold tracking-widest text-white">
                     PUBLISHED // {article.date}
                   </span>
                   <span className="mono text-[9px] text-zinc-500 font-bold select-none">
@@ -90,9 +90,9 @@ export default function BlogPost() {
                 <div className="prose prose-invert max-w-none font-sans leading-relaxed text-zinc-300 
                   prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-white
                   prose-h4:text-zinc-200 prose-h5:text-zinc-300 prose-h6:text-zinc-400
-                  prose-a:text-amber-400 hover:prose-a:text-amber-300 prose-a:transition-colors
+                  prose-a:text-white prose-a:underline hover:prose-a:text-zinc-300 prose-a:transition-colors
                   prose-strong:text-white prose-strong:font-bold
-                  prose-code:text-amber-300 prose-code:bg-zinc-800/40 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+                  prose-code:text-white prose-code:bg-zinc-800/40 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
                   prose-pre:bg-zinc-950/80 prose-pre:border prose-pre:border-zinc-850 prose-pre:p-4 prose-pre:rounded-md
                   prose-img:rounded-md prose-img:border prose-img:border-zinc-800
                   prose-hr:border-zinc-800"

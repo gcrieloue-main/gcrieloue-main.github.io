@@ -113,7 +113,7 @@ export default function Blog() {
                           </span>
                         </div>
 
-                        <h3 className="mb-3 text-xl font-extrabold tracking-tight text-white uppercase transition-colors group-hover:text-amber-400">
+                        <h3 className="mb-3 text-xl font-extrabold tracking-tight text-zinc-300 uppercase transition-colors group-hover:text-white">
                           {article.title}
                         </h3>
 
