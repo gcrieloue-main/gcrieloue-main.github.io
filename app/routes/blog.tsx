@@ -5,6 +5,7 @@ import { Link, useSearchParams } from "react-router";
 import { BookOpen } from "lucide-react";
 import Title from "~/components/ui/Title";
 import { HeaderTitle } from "~/components/HeaderTitle";
+import { Footer } from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -44,7 +45,7 @@ export default function Blog() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+    <div className="bg-background min-h-screen text-zinc-100">
       <div className="grain"></div>
       <HeaderTitle
         activeTab="blog"
@@ -73,7 +74,7 @@ export default function Blog() {
           {loading ? (
             <div className="flex h-64 flex-col items-center justify-center space-y-4">
               <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></span>
-              <p className="mono text-xs text-zinc-400 animate-pulse">
+              <p className="mono animate-pulse text-xs text-zinc-400">
                 RETRIEVING_DATA_STREAM...
               </p>
             </div>
@@ -85,7 +86,7 @@ export default function Blog() {
               {page > 1 && (
                 <button
                   onClick={() => setSearchParams({ page: "1" })}
-                  className="mono mt-4 cursor-pointer border border-zinc-400 px-3 py-1.5 text-xs font-bold text-zinc-300 hover:bg-white hover:text-black transition-colors"
+                  className="mono mt-4 cursor-pointer border border-zinc-400 px-3 py-1.5 text-xs font-bold text-zinc-300 transition-colors hover:bg-white hover:text-black"
                 >
                   [ RETURN_TO_PAGE_1 ]
                 </button>
@@ -97,38 +98,38 @@ export default function Blog() {
                 {articles.map((article) => (
                   <article
                     key={article.sys.id}
-                    className="group relative clip-corner-sm border border-zinc-800 bg-zinc-900/60 p-6 transition-all duration-300 hover:border-zinc-500 hover:bg-zinc-900/90"
+                    className="group clip-corner-sm relative border border-zinc-800 bg-zinc-900/60 p-6 transition-all duration-300 hover:border-zinc-500 hover:bg-zinc-900/90"
                   >
-                    <div className="pat-micro-grid absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                    
-                    <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div className="pat-micro-grid absolute inset-0 opacity-10 transition-opacity group-hover:opacity-20"></div>
+
+                    <div className="relative z-10 flex h-full flex-col justify-between">
                       <div>
-                        <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-                          <span className="mono text-[9px] bg-zinc-800 px-2 py-0.5 font-bold tracking-widest text-zinc-400">
+                        <div className="mb-4 flex items-center justify-between border-b border-zinc-800 pb-3">
+                          <span className="mono bg-zinc-800 px-2 py-0.5 text-[9px] font-bold tracking-widest text-zinc-400">
                             ID: {article.sys.id.slice(0, 8).toUpperCase()}
                           </span>
-                          <span className="mono text-[9px] text-zinc-500 font-bold">
+                          <span className="mono text-[9px] font-bold text-zinc-500">
                             {article.date}
                           </span>
                         </div>
 
-                        <h3 className="text-xl font-extrabold tracking-tight text-white uppercase mb-3 transition-colors group-hover:text-amber-400">
+                        <h3 className="mb-3 text-xl font-extrabold tracking-tight text-white uppercase transition-colors group-hover:text-amber-400">
                           {article.title}
                         </h3>
 
-                        <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-sans">
+                        <p className="mb-6 font-sans text-sm leading-relaxed text-zinc-400">
                           {getSnippet(article.content)}
                         </p>
                       </div>
 
-                      <div className="flex justify-between items-end pt-4 border-t border-zinc-850">
+                      <div className="border-zinc-850 flex items-end justify-between border-t pt-4">
                         <Link
                           to={`/blog/${article.slug}`}
-                          className="mono text-xs font-black tracking-widest text-zinc-300 uppercase hover:text-white flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+                          className="mono flex items-center gap-2 text-xs font-black tracking-widest text-zinc-300 uppercase transition-transform group-hover:translate-x-1 hover:text-white"
                         >
                           [ READ_POST ] <span className="text-sm">→</span>
                         </Link>
-                        <span className="kojima-barcode-white opacity-10 group-hover:opacity-25 transition-opacity"></span>
+                        <span className="kojima-barcode-white opacity-10 transition-opacity group-hover:opacity-25"></span>
                       </div>
                     </div>
                   </article>
@@ -136,7 +137,7 @@ export default function Blog() {
               </div>
 
               {/* Pagination Controls */}
-              <div className="mt-14 flex justify-between items-center border-t border-zinc-800 pt-8">
+              <div className="mt-14 flex items-center justify-between border-t border-zinc-800 pt-8">
                 <button
                   onClick={handlePrev}
                   disabled={page === 1}
@@ -144,7 +145,7 @@ export default function Blog() {
                 >
                   [ PREVIOUS_PAGE ]
                 </button>
-                
+
                 <span className="mono text-xs font-bold text-zinc-500">
                   PAGE // {page.toString().padStart(2, "0")}
                 </span>
@@ -164,27 +165,7 @@ export default function Blog() {
 
       <div className="hazard-bar"></div>
 
-      <footer className="p-4 py-8 text-zinc-500 bg-zinc-950">
-        <div className="container mx-auto px-5 max-md:px-2 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <ul className="space-y-2 text-xs">
-            <li className="flex items-center gap-3">
-              <span className="text-zinc-600">Email:</span>
-              <a href="mailto:gilles@crieloue.fr" className="underline hover:text-zinc-300 transition-colors">
-                gilles@crieloue.fr
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
-              <span className="text-zinc-600">Web:</span>
-              <a href="http://gilles.crieloue.fr" className="underline hover:text-zinc-300 transition-colors">
-                gilles.crieloue.fr
-              </a>
-            </li>
-          </ul>
-          <div className="mono text-[9px] text-zinc-600">
-            SYSTEM VERSION: B.02 // COMPILED: 2026
-          </div>
-        </div>
-      </footer>
+      <Footer rightLabel="SYSTEM VERSION: B.02 // COMPILED: 2026" />
     </div>
   );
 }

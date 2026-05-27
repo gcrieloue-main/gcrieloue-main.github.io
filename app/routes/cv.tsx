@@ -5,6 +5,7 @@ import { Education } from "~/components/Education";
 import { motion } from "framer-motion";
 import { WorkExperiences } from "~/components/WorkExperiences";
 import { HeaderTitle } from "~/components/HeaderTitle";
+import { Footer } from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -74,28 +75,7 @@ export default function CV() {
 
       <div className="hazard-bar"></div>
 
-      <footer className="p-4 py-8 text-zinc-300">
-        <ul className="space-y-3 text-sm">
-          <li className="group flex items-center gap-3">
-            <span className="text-gray-500 transition-colors">Email:</span>
-            <a
-              href="mailto:gilles@crieloue.fr"
-              className="font-medium underline decoration-white/20 underline-offset-4 transition-all hover:text-blue-400"
-            >
-              gilles@crieloue.fr
-            </a>
-          </li>
-          <li className="group flex items-center gap-3">
-            <span className="text-gray-500 transition-colors">Web:</span>
-            <a
-              href="http://gilles.crieloue.fr"
-              className="font-medium underline decoration-white/20 underline-offset-4 transition-all hover:text-blue-400"
-            >
-              gilles.crieloue.fr
-            </a>
-          </li>
-        </ul>
-      </footer>
+      <Footer />
     </div>
   );
 }

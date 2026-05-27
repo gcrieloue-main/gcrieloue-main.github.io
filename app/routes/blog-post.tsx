@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router";
 import { FileText } from "lucide-react";
 import Title from "~/components/ui/Title";
 import { HeaderTitle } from "~/components/HeaderTitle";
+import { Footer } from "~/components/Footer";
 
 export function meta({ data }: Route.MetaArgs) {
   return [
@@ -24,7 +25,7 @@ export default function BlogPost() {
   }, [slug, fetchArticle]);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+    <div className="min-h-screen bg-background text-zinc-100">
       <div className="grain"></div>
       <HeaderTitle
         activeTab="blog"
@@ -114,27 +115,7 @@ export default function BlogPost() {
 
       <div className="hazard-bar"></div>
 
-      <footer className="p-4 py-8 text-zinc-500 bg-zinc-950">
-        <div className="container mx-auto px-5 max-md:px-2 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <ul className="space-y-2 text-xs">
-            <li className="flex items-center gap-3">
-              <span className="text-zinc-600">Email:</span>
-              <a href="mailto:gilles@crieloue.fr" className="underline hover:text-zinc-300 transition-colors">
-                gilles@crieloue.fr
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
-              <span className="text-zinc-600">Web:</span>
-              <a href="http://gilles.crieloue.fr" className="underline hover:text-zinc-300 transition-colors">
-                gilles.crieloue.fr
-              </a>
-            </li>
-          </ul>
-          <div className="mono text-[9px] text-zinc-600">
-            SYSTEM VERSION: B.02 // COMPILED: 2026
-          </div>
-        </div>
-      </footer>
+      <Footer rightLabel="SYSTEM VERSION: B.02 // COMPILED: 2026" />
     </div>
   );
 }
