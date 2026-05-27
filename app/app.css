@@ -33,6 +33,10 @@
   clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
 }
 
+pre.shiki {
+  @apply rounded-xl p-4 border border-zinc-800 bg-zinc-950/40 overflow-x-auto font-mono text-sm leading-relaxed;
+}
+
 html,
 body {
   @apply bg-white dark:bg-gray-950;

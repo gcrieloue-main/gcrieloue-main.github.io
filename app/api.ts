@@ -2,6 +2,7 @@ import * as showdown from 'showdown';
 import * as contentful from 'contentful';
 import type { Entry, EntryFieldTypes } from 'contentful';
 import { create } from 'zustand';
+import { codeToHtml } from "shiki";
 
 const client = contentful.createClient({
   space: 'oamir411dfuu',
@@ -81,6 +82,54 @@ function replaceSmileys(text: string): string {
 const formatDate = (date: Date): string =>
   ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear();
 
+async function highlightCodeBlocks(html: string): Promise<string> {
+  const regex = /<pre>\s*<code([^>]*)>([\s\S]*?)<\/code>\s*<\/pre>/g;
+  const matches = [...html.matchAll(regex)];
+  if (matches.length === 0) return html;
+
+  let result = html;
+  for (const match of matches) {
+    const fullMatch = match[0];
+    const attrs = match[1];
+    const rawCode = match[2];
+
+    let lang = "text";
+    const classMatch = attrs.match(/class="([^"]+)"/);
+    if (classMatch) {
+      const classes = classMatch[1].split(/\s+/);
+      const langClass = classes.find((c) => c.startsWith("language-"));
+      if (langClass) {
+        lang = langClass.replace("language-", "");
+      } else if (classes.length > 0) {
+        lang = classes[0];
+      }
+    }
+
+    const decodedCode = rawCode
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&#x27;/g, "'")
+      .replace(/&amp;/g, "&"); // &amp; must be decoded last!
+
+    try {
+      const highlighted = await codeToHtml(decodedCode, {
+        lang: lang,
+        theme: "github-dark",
+        colorReplacements: {
+          '#24292e': 'transparent',
+        }
+      });
+      const wrapped = `<div class="not-prose my-4">${highlighted}</div>`;
+      result = result.replace(fullMatch, wrapped);
+    } catch (e) {
+      console.error("Shiki highlighting failed for lang:", lang, e);
+    }
+  }
+  return result;
+}
+
 // Processing functions
 function processArticle(element: Entry<ArticleSkeleton>): ProcessedArticle {
   const date = new Date(element.fields.date as string);
@@ -99,12 +148,20 @@ function processArticle(element: Entry<ArticleSkeleton>): ProcessedArticle {
 export function getArticles(page: number = 1, nbArticles: number): Promise<ProcessedArticle[]> {
   return client
     .getEntries<ArticleSkeleton>({
-      content_type: 'article',
-      order: ['-fields.date'],
+      content_type: "article",
+      order: ["-fields.date"],
       skip: (page - 1) * nbArticles,
       limit: nbArticles,
     })
-    .then(({ items }) => items.map(processArticle))
+    .then(({ items }) => {
+      const processed = items.map(processArticle);
+      return Promise.all(
+        processed.map(async (art) => ({
+          ...art,
+          content: await highlightCodeBlocks(art.content),
+        })),
+      );
+    })
     .catch((error) => {
       console.error(error);
       return [];
@@ -130,6 +187,10 @@ export function getArticle(slug: string): Promise<ProcessedArticle> {
       return client.getEntry<ArticleSkeleton>(slug);
     })
     .then(processArticle)
+    .then(async (art) => ({
+      ...art,
+      content: await highlightCodeBlocks(art.content),
+    }))
     .catch((error) => {
       console.error(error);
       throw error;
@@ -140,12 +201,20 @@ export function searchArticles(text: string): Promise<ProcessedArticle[]> {
   const nbArticles = 10;
   return client
     .getEntries<ArticleSkeleton>({
-      content_type: 'article',
-      order: ['-fields.date'],
+      content_type: "article",
+      order: ["-fields.date"],
       limit: nbArticles,
-      'fields.content[match]': text,
+      "fields.content[match]": text,
     })
-    .then(({ items }) => items.map(processArticle))
+    .then(({ items }) => {
+      const processed = items.map(processArticle);
+      return Promise.all(
+        processed.map(async (art) => ({
+          ...art,
+          content: await highlightCodeBlocks(art.content),
+        })),
+      );
+    })
     .catch((error) => {
       console.error(error);
       return [];

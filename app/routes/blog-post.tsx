@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router";
 import { FileText } from "lucide-react";
 import Title from "~/components/ui/Title";
-import { HeaderTitle } from "~/components/HeaderTitle";
-import { Footer } from "~/components/Footer";
+import { HeaderTitle } from "~/components/ui/HeaderTitle";
+import { Footer } from "~/components/ui/Footer";
 
 export function meta({ data }: Route.MetaArgs) {
   return [

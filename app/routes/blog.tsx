@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router";
 import { BookOpen } from "lucide-react";
 import Title from "~/components/ui/Title";
-import { HeaderTitle } from "~/components/HeaderTitle";
-import { Footer } from "~/components/Footer";
+import { HeaderTitle } from "~/components/ui/HeaderTitle";
+import { Footer } from "~/components/ui/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [

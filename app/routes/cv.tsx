@@ -4,8 +4,8 @@ import { Skills } from "~/components/Skills";
 import { Education } from "~/components/Education";
 import { motion } from "framer-motion";
 import { WorkExperiences } from "~/components/WorkExperiences";
-import { HeaderTitle } from "~/components/HeaderTitle";
-import { Footer } from "~/components/Footer";
+import { HeaderTitle } from "~/components/ui/HeaderTitle";
+import { Footer } from "~/components/ui/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [

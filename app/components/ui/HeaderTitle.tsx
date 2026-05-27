@@ -20,32 +20,17 @@ export const HeaderTitle = ({
   specBold,
 }: HeaderTitleProps) => {
   const activeClass =
-    "text-black hover:text-zinc-700 transition-colors underline decoration-black decoration-2 underline-offset-4";
+    "text-black transition-colors bg-black text-zinc-100 decoration-black decoration-2 underline-offset-4 p-2 py-1";
   const inactiveClass =
-    "text-zinc-500 hover:text-black transition-colors hover:underline";
+    "text-zinc-500  transition-colors p-2 py-1 hover:bg-zinc-500 hover:text-white";
 
   return (
     <section className="pattern-master-light relative w-full overflow-hidden border-b border-zinc-200 bg-white py-16 text-zinc-900">
       <div className="container mx-auto px-5 max-md:px-2">
-        <div className="mb-6 flex gap-4 font-mono text-[11px] font-bold tracking-widest uppercase">
-          <Link
-            to="/"
-            className={activeTab === "cv" ? activeClass : inactiveClass}
-          >
-            // CV
-          </Link>
-          <Link
-            to="/blog"
-            className={activeTab === "blog" ? activeClass : inactiveClass}
-          >
-            // BLOG
-          </Link>
-        </div>
-
         <div className="mb-8 flex flex-col items-start justify-between border-b-2 border-black pb-6 md:flex-row md:items-end">
           <div className="space-y-2">
             <div className="flex items-center space-x-3">
-              <span className="mono bg-black px-2 py-0.5 text-[9px] font-bold tracking-widest text-white animate-pulse">
+              <span className="mono animate-pulse bg-black px-2 py-0.5 text-[9px] font-bold tracking-widest text-white">
                 {badgeText}
               </span>
               <span className="mono text-xs font-bold tracking-widest text-zinc-600 uppercase">
@@ -62,10 +47,27 @@ export const HeaderTitle = ({
             <div className="mono text-right text-[9px] leading-tight text-zinc-500">
               <div>{specLine1}</div>
               <div>{specLine2}</div>
-              <div className="font-extrabold text-black uppercase">{specBold}</div>
+              <div className="font-extrabold text-black uppercase">
+                {specBold}
+              </div>
             </div>
             <div className="kojima-barcode"></div>
           </div>
+        </div>
+
+        <div className="flex justify-end gap-2 font-mono text-[11px] font-bold tracking-widest uppercase">
+          <Link
+            to="/"
+            className={activeTab === "cv" ? activeClass : inactiveClass}
+          >
+            // CV
+          </Link>
+          <Link
+            to="/blog"
+            className={activeTab === "blog" ? activeClass : inactiveClass}
+          >
+            // BLOG
+          </Link>
         </div>
       </div>
     </section>
