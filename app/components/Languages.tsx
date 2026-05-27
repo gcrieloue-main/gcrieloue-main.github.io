@@ -1,21 +1,3 @@
-import { twMerge } from "tailwind-merge";
-
-import fr from "./FR.svg";
-import gb from "./GB.svg";
-
-const languages = [
-  {
-    flag: <img src={fr} alt="FR" width={25} />,
-    text: "Français : langue native",
-  },
-  {
-    flag: <img src={gb} alt="EN" width={25} />,
-    text: "Anglais : bonne maitrise (Toeic score 820)",
-  },
-];
-
-const FR = fr;
-
 export const Languages = () => {
   return (
     <article>

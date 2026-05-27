@@ -51,7 +51,6 @@ export default function Blog() {
         activeTab="blog"
         badgeText="ARCHIVES"
         bracketText="[ ARTICLE_FEED_TELEM ]"
-        titleText="BLOG & RECHERCHES"
         specLine1="TRANSMISSION: DIRECT_FEED"
         specLine2="STATUS: ONLINE_CONNECTED"
         specBold="KNOWLEDGE BASE"

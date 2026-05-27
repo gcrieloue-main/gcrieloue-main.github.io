@@ -25,7 +25,6 @@ export default function CV() {
         activeTab="cv"
         badgeText="PROFILE"
         bracketText="[ FULL_STACK_DEVELOPER ]"
-        titleText="GILLES CRIELOUE"
         specLine1="MODEL SPECIFICATION: TYPE-01"
         specLine2="SPEC_DIR: //05.B25.2026"
         specBold="VALUABLE ASSET"

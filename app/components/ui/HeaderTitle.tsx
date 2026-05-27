@@ -4,7 +4,7 @@ interface HeaderTitleProps {
   activeTab: "cv" | "blog";
   badgeText: string;
   bracketText: string;
-  titleText: string;
+  titleText?: string;
   specLine1: string;
   specLine2: string;
   specBold: string;
@@ -14,7 +14,7 @@ export const HeaderTitle = ({
   activeTab,
   badgeText,
   bracketText,
-  titleText,
+  titleText = "GILLES CRIELOUE",
   specLine1,
   specLine2,
   specBold,
