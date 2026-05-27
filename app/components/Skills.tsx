@@ -25,8 +25,16 @@ export const Skills = () => {
             <h3 className="pt-4 pb-2 text-sm">Frameworks / Serveurs</h3>
             <ul className="tag-list px-0">
               <li>Spring</li>
-              <li>Angular, Vue.js, React</li>
-              <li>MongoDB, Oracle, PostgreSQL</li>
+              <li>Angular</li>
+              <li>Vue.js</li>
+              <li>React</li>
+            </ul>
+            <ul className="tag-list px-0">
+              <li>MongoDB</li>
+              <li>Oracle</li>
+              <li>PostgreSQL</li>
+            </ul>
+            <ul className="tag-list px-0">
               <li>AWS</li>
               <li>GCP</li>
             </ul>
@@ -35,7 +43,10 @@ export const Skills = () => {
               <li>Jenkins</li>
               <li>Gitlab</li>
               <li>Github</li>
-              <li>Méthodologie agile, SCRUM</li>
+            </ul>
+            <ul className="tag-list px-0">
+              <li>Méthodologie agile</li>
+              <li> SCRUM</li>
             </ul>
           </div>
         </article>

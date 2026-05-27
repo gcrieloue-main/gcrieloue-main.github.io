@@ -57,7 +57,7 @@ export default function CV() {
       <div className="border-t-2">
         <main id="cv">
           <section className="container mx-auto px-5 max-md:px-2">
-            <div className="mt-14 flex gap-8 max-lg:flex-col">
+            <div className="mt-14 flex gap-14 max-lg:flex-col">
               <div className="pat-10 flex-1">
                 <About />
               </div>
