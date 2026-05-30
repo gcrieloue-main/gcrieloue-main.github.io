@@ -26,7 +26,7 @@ export const Education = () => {
             <div>
               <ul className="space-y-4 pl-4">
                 <li className="flex items-start space-x-3">
-                  <span className="mono mt-1 flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
+                  <span className="mono mt-1 flex h-3.5 w-3.5 shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
                     ✓
                   </span>
                   <div>
@@ -39,7 +39,7 @@ export const Education = () => {
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <span className="mono mt-1 flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
+                  <span className="mono mt-1 flex h-3.5 w-3.5 shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
                     ✓
                   </span>
                   <div>
@@ -52,7 +52,7 @@ export const Education = () => {
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <span className="mono mt-1 flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
+                  <span className="mono mt-1 flex h-3.5 w-3.5 shrink-0 items-center justify-center border-2 border-white text-[8px] font-bold">
                     ✓
                   </span>
                   <div>
@@ -73,7 +73,7 @@ export const Education = () => {
             // Certifications
           </h3>
           <div className="grid grid-cols-2 gap-2">
-            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border-1 border-zinc-800 bg-black/10 p-2 grayscale">
+            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border border-zinc-800 bg-black/10 p-2 grayscale">
               <img
                 src="//images.ctfassets.net/oamir411dfuu/4UybNQnbhP8T8ePXL5suhn/ae6636795ad6ce74fd7ea6b440fc1c8f/AWS-Developer-Associate-2020.png"
                 alt="AWS-Developer-Associate-2020"
@@ -86,7 +86,7 @@ export const Education = () => {
                 </a>
               </span>
             </div>
-            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border-1 border-zinc-800 bg-black/10 p-2 grayscale">
+            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border border-zinc-800 bg-black/10 p-2 grayscale">
               <img
                 src="//images.ctfassets.net/oamir411dfuu/1IqY5wK96YNf9svZ7kC0rq/1fbc1c89477fb18e4218606303738e31/Oracle_Associates_Badge__1_.png"
                 alt="Oracle-Certification-badge OC-Associate"
