@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <footer className="p-4 py-8 text-zinc-300">
-      <div className="container mx-auto flex flex-col items-start justify-between gap-4 px-5 max-md:px-2 md:flex-row md:items-center">
+      <div className="container mx-auto flex flex-col items-start justify-between gap-4 px-5 max-md:px-2 sm:flex-row md:items-center">
         <ul className="space-y-3 text-sm">
           <li className="group flex items-center gap-3">
             <span className="text-gray-500 transition-colors">Email:</span>
