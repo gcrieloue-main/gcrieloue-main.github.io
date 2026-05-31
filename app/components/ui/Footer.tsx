@@ -25,11 +25,10 @@ export const Footer = () => {
         <div className="mono flex items-center gap-4 self-end text-[9px] text-zinc-500 select-none md:self-center">
           <img
             className="w-10 opacity-50 drop-shadow-sm select-none"
-            src="public/images/logo-gc.svg"
+            src="/images/logo-gc.svg"
           />
           <div className="flex flex-col gap-1">
             <span>SYSTEM VERSION // {__APP_VERSION__}</span>
-
             <span>COMPILED // {new Date().getFullYear()}</span>
           </div>
         </div>
