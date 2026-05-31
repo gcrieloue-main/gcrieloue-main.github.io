@@ -1,10 +1,4 @@
-interface FooterProps {
-  rightLabel?: string;
-}
-
-export const Footer = ({
-  rightLabel = `SYSTEM VERSION: ${__APP_VERSION__} // COMPILED: ${new Date().getFullYear()}`,
-}: FooterProps) => {
+export const Footer = () => {
   return (
     <footer className="p-4 py-8 text-zinc-300">
       <div className="container mx-auto flex flex-col items-start justify-between gap-4 px-5 max-md:px-2 md:flex-row md:items-center">
@@ -28,11 +22,17 @@ export const Footer = ({
             </a>
           </li>
         </ul>
-        {rightLabel && (
-          <div className="mono self-end text-[9px] text-zinc-500 select-none md:self-center">
-            {rightLabel}
+        <div className="mono flex items-center gap-4 self-end text-[9px] text-zinc-500 select-none md:self-center">
+          <img
+            className="w-10 opacity-50 drop-shadow-sm select-none"
+            src="public/images/logo-gc.svg"
+          />
+          <div className="flex flex-col gap-1">
+            <span>SYSTEM VERSION // {__APP_VERSION__}</span>
+
+            <span>COMPILED // {new Date().getFullYear()}</span>
           </div>
-        )}
+        </div>
       </div>
     </footer>
   );

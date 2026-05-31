@@ -15,12 +15,12 @@
 @layer components {
   .tag-list > *,
   .tag {
-    @apply m-1 inline-block border-1 px-2 py-1 font-mono text-sm;
+    @apply m-1 inline-block border px-2 py-1 font-mono text-sm;
   }
 
   .tag-list > *,
   .tag {
-    @apply m-1 inline-block border-1 px-2 py-1 font-mono text-sm;
+    @apply m-1 inline-block border px-2 py-1 font-mono text-sm;
   }
 
   .tag-list-dark > *,

@@ -4,7 +4,7 @@ export const Languages = () => {
       <div className="flex max-w-80 flex-col gap-3">
         <div className="border-zinc-850 clip-corner-xs flex items-center justify-between border bg-zinc-950/80 p-3 transition-colors duration-300 hover:border-zinc-700">
           <div className="flex min-w-0 items-center space-x-3">
-            <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.8)]"></div>
+            <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.8)]"></div>
             <div className="min-w-0">
               <div className="mono truncate text-[10px] leading-tight font-bold text-white">
                 FRANÇAIS
@@ -14,7 +14,7 @@ export const Languages = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-shrink-0 items-center space-x-4 pl-3">
+          <div className="flex shrink-0 items-center space-x-4 pl-3">
             <div className="flex gap-0.5">
               <div className="h-1 w-3 bg-white"></div>
               <div className="h-1 w-3 bg-white"></div>
@@ -29,7 +29,7 @@ export const Languages = () => {
 
         <div className="border-zinc-850 clip-corner-xs flex items-center justify-between border bg-zinc-950/80 p-3 transition-colors duration-300 hover:border-zinc-700">
           <div className="flex min-w-0 items-center space-x-3">
-            <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-600"></div>
+            <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-600"></div>
             <div className="min-w-0">
               <div className="mono truncate text-[10px] leading-tight font-bold text-white">
                 ANGLAIS
@@ -39,7 +39,7 @@ export const Languages = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-shrink-0 items-center space-x-4 pl-3">
+          <div className="flex shrink-0 items-center space-x-4 pl-3">
             <div className="flex gap-0.5">
               <div className="h-1 w-3 bg-white"></div>
               <div className="h-1 w-3 bg-white"></div>
