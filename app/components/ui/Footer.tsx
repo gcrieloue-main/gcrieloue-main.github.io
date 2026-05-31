@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="container mx-auto p-4 py-8 text-zinc-300">
       <div className="flex justify-between">
-        <div className="mono flex flex-col gap-16 text-[10px] tracking-[0.2em] text-zinc-600 uppercase md:flex-row">
+        <div className="mono flex flex-row gap-16 text-[10px] tracking-[0.2em] text-zinc-600 uppercase">
           <div className="space-y-3">
             <p className="border-b border-zinc-800 pb-2 text-zinc-400">
               FIND_ME
