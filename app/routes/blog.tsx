@@ -164,7 +164,7 @@ export default function Blog() {
 
       <div className="hazard-bar"></div>
 
-      <Footer rightLabel="SYSTEM VERSION: B.02 // COMPILED: 2026" />
+      <Footer />
     </div>
   );
 }
