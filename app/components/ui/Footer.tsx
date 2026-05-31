@@ -1,27 +1,53 @@
+import { Link } from "react-router";
+
 export const Footer = () => {
   return (
-    <footer className="p-4 py-8 text-zinc-300">
-      <div className="container mx-auto flex flex-col items-start justify-between gap-4 px-5 max-md:px-2 sm:flex-row md:items-center">
-        <ul className="space-y-3 text-sm">
-          <li className="group flex items-center gap-3">
-            <span className="text-gray-500 transition-colors">Email:</span>
-            <a
-              href="mailto:gilles@crieloue.fr"
-              className="font-medium underline decoration-white/20 underline-offset-4 transition-all hover:text-blue-400"
-            >
-              gilles@crieloue.fr
-            </a>
-          </li>
-          <li className="group flex items-center gap-3">
-            <span className="text-gray-500 transition-colors">Web:</span>
-            <a
-              href="http://gilles.crieloue.fr"
-              className="font-medium underline decoration-white/20 underline-offset-4 transition-all hover:text-blue-400"
-            >
-              gilles.crieloue.fr
-            </a>
-          </li>
-        </ul>
+    <footer className="container mx-auto p-4 py-8 text-zinc-300">
+      <div className="flex justify-between">
+        <div className="mono flex flex-col gap-16 text-[10px] tracking-[0.2em] text-zinc-600 uppercase md:flex-row">
+          <div className="space-y-3">
+            <p className="border-b border-zinc-800 pb-2 text-zinc-400">
+              FIND_ME
+            </p>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://github.com/gcrieloue-main"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  GITHUB
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com/in/gilles-crieloue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="space-y-3">
+            <p className="border-b border-zinc-800 pb-2 text-zinc-400">LINKS</p>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/blog" className="transition-colors hover:text-white">
+                  BLOG
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="transition-colors hover:text-white">
+                  CV
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div className="mono flex items-center gap-4 self-end text-[9px] text-zinc-500 select-none md:self-center">
           <img
             className="w-10 opacity-50 drop-shadow-sm select-none"
