@@ -1,13 +1,11 @@
 import type { Route } from "./+types/blog-post";
 import { useStore } from "~/api";
 import { useEffect } from "react";
-import { Link, useParams } from "react-router";
-import { FileText } from "lucide-react";
-import Title from "~/components/ui/Title";
+import { Link, useParams, useLocation } from "react-router";
 import { HeaderTitle } from "~/components/ui/HeaderTitle";
 import { Footer } from "~/components/ui/Footer";
 
-export function meta({ data }: Route.MetaArgs) {
+export function meta({}: Route.MetaArgs) {
   return [
     { title: `Gilles CRIELOUE - Article` },
     { name: "description", content: "Lecture d'un article de Gilles CRIELOUE" },
@@ -17,6 +15,8 @@ export function meta({ data }: Route.MetaArgs) {
 export default function BlogPost() {
   const { slug } = useParams();
   const { article, loading, fetchArticle } = useStore();
+  const location = useLocation();
+  const currentTitle = loading ? location.state.title : article?.title;
 
   useEffect(() => {
     if (slug) {
@@ -52,7 +52,7 @@ export default function BlogPost() {
             </Link>
           </div>
 
-          {loading ? (
+          {loading && !article ? (
             <div className="flex h-64 flex-col items-center justify-center space-y-4">
               <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></span>
               <p className="mono animate-pulse text-xs text-zinc-400">
@@ -78,28 +78,46 @@ export default function BlogPost() {
               <div className="relative z-10">
                 <div className="mb-6 flex flex-wrap items-center gap-3">
                   <span className="mono border border-white/20 bg-white/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-white">
-                    PUBLISHED // {article.date}
+                    PUBLISHED // {article ? article.date : "LOADING..."}
                   </span>
-                  <span className="mono text-[9px] font-bold text-zinc-500 select-none">
-                    REF: {article.sys.id.toUpperCase()}
-                  </span>
+                  {article && (
+                    <span className="mono text-[9px] font-bold text-zinc-500 select-none">
+                      REF: {article.sys.id.toUpperCase()}
+                    </span>
+                  )}
                 </div>
 
-                <h1 className="mb-8 border-b border-zinc-800 pb-6 text-3xl leading-tight font-black tracking-tighter text-white uppercase md:text-5xl">
-                  {article.title}
+                <h1
+                  style={{ viewTransitionName: `blog-title-${slug}` }}
+                  className="mb-8 border-b border-zinc-800 pb-6 text-3xl leading-tight font-black tracking-tighter text-white uppercase md:text-5xl"
+                >
+                  {currentTitle}
                 </h1>
 
-                <div className="prose prose-invert prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-white prose-h4:text-zinc-200 prose-h5:text-zinc-300 prose-h6:text-zinc-400 prose-a:text-white prose-a:underline hover:prose-a:text-zinc-300 prose-a:transition-colors prose-strong:text-white prose-strong:font-bold prose-code:text-white prose-code:bg-zinc-800/40 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-zinc-950/80 prose-pre:border prose-pre:border-zinc-850 prose-pre:p-4 prose-pre:rounded-md prose-img:rounded-md prose-img:border prose-img:border-zinc-800 prose-hr:border-zinc-800 max-w-none font-sans leading-relaxed text-zinc-300">
-                  <div dangerouslySetInnerHTML={{ __html: article.content }} />
-                </div>
-
-                <div className="mt-14 flex items-center justify-between border-t border-zinc-800 pt-8 select-none">
-                  <div className="mono text-[9px] leading-tight text-zinc-600">
-                    <div>DATA STREAM SECURED // VALUABLE RECORD</div>
-                    <div>NEURAL-TEK DECRYPTER v1.0.4</div>
+                {loading || !article ? (
+                  <div className="flex h-32 flex-col items-center justify-center space-y-2">
+                    <span className="mono h-6 w-6 animate-spin rounded-full border-2 border-zinc-700 border-t-white"></span>
+                    <p className="mono animate-pulse text-[10px] text-zinc-400">
+                      DECRYPTING_DATA_STREAM...
+                    </p>
                   </div>
-                  <div className="kojima-barcode-white opacity-20"></div>
-                </div>
+                ) : (
+                  <>
+                    <div className="prose prose-invert prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-white prose-h4:text-zinc-200 prose-h5:text-zinc-300 prose-h6:text-zinc-400 prose-a:text-white prose-a:underline hover:prose-a:text-zinc-300 prose-a:transition-colors prose-strong:text-white prose-strong:font-bold prose-code:text-white prose-code:bg-zinc-800/40 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-zinc-950/80 prose-pre:border prose-pre:border-zinc-850 prose-pre:p-4 prose-pre:rounded-md prose-img:rounded-md prose-img:border prose-img:border-zinc-800 prose-hr:border-zinc-800 max-w-none font-sans leading-relaxed text-zinc-300">
+                      <div
+                        dangerouslySetInnerHTML={{ __html: article.content }}
+                      />
+                    </div>
+
+                    <div className="mt-14 flex items-center justify-between border-t border-zinc-800 pt-8 select-none">
+                      <div className="mono text-[9px] leading-tight text-zinc-600">
+                        <div>DATA STREAM SECURED // VALUABLE RECORD</div>
+                        <div>NEURAL-TEK DECRYPTER v1.0.4</div>
+                      </div>
+                      <div className="kojima-barcode-white opacity-20"></div>
+                    </div>
+                  </>
+                )}
               </div>
             </article>
           )}

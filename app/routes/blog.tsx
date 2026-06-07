@@ -1,7 +1,8 @@
 import type { Route } from "./+types/blog";
+import { getArticles } from "~/api";
+import { Link, useSearchParams, useLoaderData } from "react-router";
 import { useStore } from "~/api";
 import { useEffect } from "react";
-import { Link, useSearchParams } from "react-router";
 import { BookOpen } from "lucide-react";
 import Title from "~/components/ui/Title";
 import { HeaderTitle } from "~/components/ui/HeaderTitle";
@@ -10,13 +11,18 @@ import { Footer } from "~/components/ui/Footer";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Gilles CRIELOUE - Blog" },
-    { name: "description", content: "Articles et publications de Gilles CRIELOUE" },
+    {
+      name: "description",
+      content: "Articles et publications de Gilles CRIELOUE",
+    },
   ];
 }
 
 function getSnippet(html: string, maxLength: number = 220): string {
   const temp = html.replace(/<[^>]*>/g, " ");
-  return temp.length > maxLength ? temp.slice(0, maxLength).trim() + "..." : temp;
+  return temp.length > maxLength
+    ? temp.slice(0, maxLength).trim() + "..."
+    : temp;
 }
 
 export default function Blog() {
@@ -70,7 +76,7 @@ export default function Blog() {
             Articles
           </Title>
 
-          {loading ? (
+       {loading ? (
             <div className="flex h-64 flex-col items-center justify-center space-y-4">
               <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></span>
               <p className="mono animate-pulse text-xs text-zinc-400">
@@ -112,24 +118,38 @@ export default function Blog() {
                           </span>
                         </div>
 
-                        <h3 className="mb-3 text-xl font-extrabold tracking-tight text-zinc-300 uppercase transition-colors group-hover:text-white">
-                          {article.title}
-                        </h3>
-
-                        <p className="mb-6 font-sans text-sm leading-relaxed text-zinc-400">
-                          {getSnippet(article.content)}
-                        </p>
-                      </div>
-
-                      <div className="border-zinc-850 flex items-end justify-between border-t pt-4">
-                        <Link
-                          to={`/blog/${article.slug}`}
-                          className="mono flex items-center gap-2 text-xs font-black tracking-widest text-zinc-300 uppercase transition-transform group-hover:translate-x-1 hover:text-white"
-                        >
-                          [ READ_POST ] <span className="text-sm">→</span>
-                        </Link>
-                        <span className="kojima-barcode-white opacity-10 transition-opacity group-hover:opacity-25"></span>
-                      </div>
+                         <h3
+                           style={{
+                             viewTransitionName: `blog-title-${article.slug}`,
+                           }}
+                           className="mb-3 text-xl font-extrabold tracking-tight text-zinc-300 uppercase transition-colors group-hover:text-white"
+                         >
+                           <Link
+                             to={`/blog/${article.slug}`}
+                             state={{ title: article.title }}
+                             viewTransition
+                             className="transition-colors hover:text-white"
+                           >
+                             {article.title}
+                           </Link>
+                         </h3>
+ 
+                         <p className="mb-6 font-sans text-sm leading-relaxed text-zinc-400">
+                           {getSnippet(article.content)}
+                         </p>
+                       </div>
+ 
+                       <div className="border-zinc-850 flex items-end justify-between border-t pt-4">
+                         <Link
+                           to={`/blog/${article.slug}`}
+                           state={{ title: article.title }}
+                           viewTransition
+                           className="mono flex items-center gap-2 text-xs font-black tracking-widest text-zinc-300 uppercase transition-transform group-hover:translate-x-1 hover:text-white"
+                         >
+                           [ READ_POST ] <span className="text-sm">→</span>
+                         </Link>
+                         <span className="kojima-barcode-white opacity-10 transition-opacity group-hover:opacity-25"></span>
+                       </div>
                     </div>
                   </article>
                 ))}
