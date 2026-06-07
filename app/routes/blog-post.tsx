@@ -16,7 +16,8 @@ export default function BlogPost() {
   const { slug } = useParams();
   const { article, loading, fetchArticle } = useStore();
   const location = useLocation();
-  const currentTitle = loading ? location.state.title : article?.title;
+  const currentTitle = loading ? location.state.article.title : article?.title;
+  const currentDate = loading ? location.state.article.date : article?.date;
 
   useEffect(() => {
     if (slug) {
@@ -78,9 +79,9 @@ export default function BlogPost() {
               <div className="relative z-10">
                 <div className="mb-6 flex flex-wrap items-center gap-3">
                   <span className="mono border border-white/20 bg-white/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-white">
-                    PUBLISHED // {article ? article.date : "LOADING..."}
+                    {currentDate && "PUBLISHED // " + currentDate}
                   </span>
-                  {article && (
+                  {!loading && article && (
                     <span className="mono text-[9px] font-bold text-zinc-500 select-none">
                       REF: {article.sys.id.toUpperCase()}
                     </span>
