@@ -78,20 +78,20 @@ export default function Blog() {
 
           {loading ? (
             <div className="flex h-64 flex-col items-center justify-center space-y-4">
-              <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></span>
-              <p className="mono animate-pulse text-xs text-zinc-400">
+              <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-white/10 border-t-white"></span>
+              <p className="mono animate-pulse text-xs text-zinc-300">
                 RETRIEVING_DATA_STREAM...
               </p>
             </div>
           ) : articles.length === 0 ? (
-            <div className="clip-corner flex h-64 flex-col items-center justify-center border border-dashed border-zinc-700 bg-zinc-900/50 p-6 text-center">
-              <p className="mono text-sm text-zinc-400">
+            <div className="clip-corner flex h-64 flex-col items-center justify-center border border-dashed border-white/15 bg-white/[0.04] p-6 text-center">
+              <p className="mono text-sm text-zinc-300">
                 NO_RECORDS_FOUND_ON_PAGE: {page}
               </p>
               {page > 1 && (
                 <button
                   onClick={() => setSearchParams({ page: "1" })}
-                  className="mono mt-4 cursor-pointer border border-zinc-400 px-3 py-1.5 text-xs font-bold text-zinc-300 transition-colors hover:bg-white hover:text-black"
+                  className="mono mt-4 cursor-pointer border border-white/30 px-3 py-1.5 text-xs font-bold text-zinc-200 transition-colors hover:bg-white hover:text-black"
                 >
                   [ RETURN_TO_PAGE_1 ]
                 </button>
@@ -103,17 +103,17 @@ export default function Blog() {
                 {articles.map((article) => (
                   <article
                     key={article.sys.id}
-                    className="group clip-corner-sm relative border border-zinc-800 bg-zinc-900/60 p-6 transition-all duration-300 hover:border-zinc-500 hover:bg-zinc-900/90"
+                    className="group clip-corner-sm relative border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08]"
                   >
                     <div className="pat-micro-grid absolute inset-0 opacity-10 transition-opacity group-hover:opacity-20"></div>
 
                     <div className="relative z-10 flex h-full flex-col justify-between">
                       <div>
-                        <div className="mb-4 flex items-center justify-between border-b border-zinc-800 pb-3">
-                          <span className="mono bg-zinc-800 px-2 py-0.5 text-[9px] font-bold tracking-widest text-zinc-400">
+                        <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
+                          <span className="mono bg-white/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-zinc-300">
                             ID: {article.sys.id.slice(0, 8).toUpperCase()}
                           </span>
-                          <span className="mono text-[9px] font-bold text-zinc-500">
+                          <span className="mono text-[9px] font-bold text-zinc-400">
                             {article.date}
                           </span>
                         </div>
@@ -122,7 +122,7 @@ export default function Blog() {
                           style={{
                             viewTransitionName: `blog-title-${article.slug}`,
                           }}
-                          className="mb-3 text-xl font-extrabold tracking-tight text-zinc-300 uppercase transition-colors group-hover:text-white"
+                          className="mb-3 text-xl font-extrabold tracking-tight text-zinc-100 uppercase transition-colors group-hover:text-white"
                         >
                           <Link
                             to={`/blog/${article.slug}`}
@@ -134,17 +134,17 @@ export default function Blog() {
                           </Link>
                         </h3>
 
-                        <p className="mb-6 font-sans text-sm leading-relaxed text-zinc-400">
+                        <p className="mb-6 font-sans text-sm leading-relaxed text-zinc-300">
                           {getSnippet(article.content)}
                         </p>
                       </div>
 
-                      <div className="border-zinc-850 flex items-end justify-between border-t pt-4">
+                      <div className="border-zinc-850 flex items-end justify-between border-t border-white/10 pt-4">
                         <Link
                           to={`/blog/${article.slug}`}
                           state={{ article }}
                           viewTransition
-                          className="mono flex items-center gap-2 text-xs font-black tracking-widest text-zinc-300 uppercase transition-transform group-hover:translate-x-1 hover:text-white"
+                          className="mono flex items-center gap-2 text-xs font-black tracking-widest text-indigo-300 uppercase transition-transform group-hover:translate-x-1 hover:text-white"
                         >
                           [ READ_POST ] <span className="text-sm">→</span>
                         </Link>
@@ -156,23 +156,23 @@ export default function Blog() {
               </div>
 
               {/* Pagination Controls */}
-              <div className="mt-14 flex items-center justify-between border-t border-zinc-800 pt-8">
+              <div className="mt-14 flex items-center justify-between border-t border-white/10 pt-8">
                 <button
                   onClick={handlePrev}
                   disabled={page === 1}
-                  className="mono cursor-pointer border border-zinc-700 bg-zinc-900 px-4 py-2.5 text-[10px] font-extrabold tracking-widest text-zinc-300 transition-all hover:border-white hover:text-white disabled:pointer-events-none disabled:opacity-20"
+                  className="mono cursor-pointer border border-white/15 bg-white/[0.05] px-4 py-2.5 text-[10px] font-extrabold tracking-widest text-zinc-100 transition-all hover:border-white hover:text-white disabled:pointer-events-none disabled:opacity-20"
                 >
                   [ PREVIOUS_PAGE ]
                 </button>
 
-                <span className="mono text-xs font-bold text-zinc-500">
+                <span className="mono text-xs font-bold text-zinc-400">
                   PAGE // {page.toString().padStart(2, "0")}
                 </span>
 
                 <button
                   onClick={handleNext}
                   disabled={articles.length < 10}
-                  className="mono cursor-pointer border border-zinc-700 bg-zinc-900 px-4 py-2.5 text-[10px] font-extrabold tracking-widest text-zinc-300 transition-all hover:border-white hover:text-white disabled:pointer-events-none disabled:opacity-20"
+                  className="mono cursor-pointer border border-white/15 bg-white/[0.05] px-4 py-2.5 text-[10px] font-extrabold tracking-widest text-zinc-100 transition-all hover:border-white hover:text-white disabled:pointer-events-none disabled:opacity-20"
                 >
                   [ NEXT_PAGE ]
                 </button>

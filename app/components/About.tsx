@@ -58,7 +58,7 @@ export const About = () => {
           >
             <div className="flex flex-wrap justify-center gap-4">
               <motion.div
-                className="clip-corner-sm flex aspect-2/1 h-25 flex-col items-center justify-center border p-6 text-center max-md:h-20"
+                className="clip-corner-sm flex aspect-2/1 h-25 flex-col items-center justify-center border border-white/25 p-6 text-center max-md:h-20"
                 variants={itemVariants}
               >
                 <div className="pat-micro-grid absolute inset-0 opacity-20"></div>
@@ -70,21 +70,21 @@ export const About = () => {
                 </p>
               </motion.div>
               <motion.div
-                className="clip-corner-sm flex aspect-square h-25 flex-col items-center justify-center border hover:scale-105 max-md:h-20"
+                className="clip-corner-sm flex aspect-square h-25 flex-col items-center justify-center border border-white/25 hover:scale-105 max-md:h-20"
                 variants={itemVariants}
               >
                 <div className="pat-micro-grid absolute inset-0 opacity-20"></div>
-                <span className="text-[10px] font-bold tracking-widest text-zinc-300 uppercase">
+                <span className="text-[10px] font-bold tracking-widest text-zinc-100 uppercase">
                   BAC
                 </span>
                 <span className="text-3xl font-black max-md:text-2xl">+5</span>
               </motion.div>
               <motion.div
-                className="clip-corner-sm flex aspect-square h-25 flex-col items-center justify-center border hover:scale-105 max-md:h-20"
+                className="clip-corner-sm flex aspect-square h-25 flex-col items-center justify-center border border-white/25 hover:scale-105 max-md:h-20"
                 variants={itemVariants}
               >
                 <div className="pat-micro-grid absolute inset-0 opacity-20"></div>
-                <span className="text-[10px] font-bold tracking-widest text-zinc-300 uppercase">
+                <span className="text-[10px] font-bold tracking-widest text-zinc-100 uppercase">
                   Années XP
                 </span>
                 <span className="text-3xl font-black max-md:text-2xl">15</span>
@@ -127,4 +127,3 @@ const Presentation = () => {
     </div>
   );
 };
-

@@ -69,11 +69,11 @@ export const Education = () => {
           </div>
         </motion.article>
         <div className="flex rounded-xl max-lg:hidden">
-          <h3 className="text-mono text-vertical clip-corner-sm mr-2 max-w-40 border-r-2 border-zinc-700 bg-white/5 p-1 text-center text-sm uppercase [writing-mode:vertical-rl]">
+          <h3 className="text-mono text-vertical clip-corner-sm mr-2 max-w-40 border-r-2 border-white/20 bg-white/5 p-1 text-center text-sm uppercase [writing-mode:vertical-rl]">
             // Certifications
           </h3>
           <div className="grid grid-cols-2 gap-2">
-            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border border-zinc-800 bg-black/10 p-2 grayscale">
+            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border border-white/20 bg-white/[0.06] p-2 grayscale">
               <img
                 src="//images.ctfassets.net/oamir411dfuu/4UybNQnbhP8T8ePXL5suhn/ae6636795ad6ce74fd7ea6b440fc1c8f/AWS-Developer-Associate-2020.png"
                 alt="AWS-Developer-Associate-2020"
@@ -86,7 +86,7 @@ export const Education = () => {
                 </a>
               </span>
             </div>
-            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border border-zinc-800 bg-black/10 p-2 grayscale">
+            <div className="clip-corner-sm flex max-w-40 flex-col items-center justify-center gap-3 border border-white/20 bg-white/[0.06] p-2 grayscale">
               <img
                 src="//images.ctfassets.net/oamir411dfuu/1IqY5wK96YNf9svZ7kC0rq/1fbc1c89477fb18e4218606303738e31/Oracle_Associates_Badge__1_.png"
                 alt="Oracle-Certification-badge OC-Associate"
