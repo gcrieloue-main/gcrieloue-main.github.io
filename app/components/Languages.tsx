@@ -9,7 +9,7 @@ export const Languages = () => {
               <div className="mono truncate text-[10px] leading-tight font-bold text-white">
                 FRANÇAIS
               </div>
-              <div className="mono text-[8px] leading-none text-zinc-500 uppercase">
+              <div className="mono text-[8px] leading-none text-zinc-400 uppercase">
                 NATIVE_FLOW
               </div>
             </div>
@@ -34,7 +34,7 @@ export const Languages = () => {
               <div className="mono truncate text-[10px] leading-tight font-bold text-white">
                 ANGLAIS
               </div>
-              <div className="mono text-[8px] leading-none text-zinc-500 uppercase">
+              <div className="mono text-[8px] leading-none text-zinc-400 uppercase">
                 TOEIC_SCORE: 820
               </div>
             </div>

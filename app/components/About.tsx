@@ -94,7 +94,7 @@ export const About = () => {
         </div>
         <div className="mt-10 flex grow flex-col justify-center space-y-4">
           <div className="space-y-1">
-            <h3 className="text-xs font-bold tracking-tighter text-gray-500 uppercase">
+            <h3 className="text-xs font-bold tracking-tighter text-zinc-400 uppercase">
               Disponibilité
             </h3>
             <p className="flex items-center gap-2">

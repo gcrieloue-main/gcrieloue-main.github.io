@@ -81,7 +81,10 @@ export const Education = () => {
                 height="auto"
               />
               <span className="text-center text-sm">
-                <a href="https://www.youracclaim.com/badges/58e7bc73-22b5-45c6-af0e-297f2058fde2">
+                <a
+                  href="https://www.youracclaim.com/badges/58e7bc73-22b5-45c6-af0e-297f2058fde2"
+                  className="transition-colors hover:text-indigo-300"
+                >
                   AWS Developer Associate
                 </a>
               </span>
@@ -94,7 +97,10 @@ export const Education = () => {
                 height="auto"
               />
               <span className="text-center text-sm">
-                <a href="https://www.youracclaim.com/badges/cc833095-25ab-47da-b13e-051e017646dc">
+                <a
+                  href="https://www.youracclaim.com/badges/cc833095-25ab-47da-b13e-051e017646dc"
+                  className="transition-colors hover:text-indigo-300"
+                >
                   Java SE 8 Programmer
                 </a>
               </span>

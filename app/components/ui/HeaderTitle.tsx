@@ -22,7 +22,7 @@ export const HeaderTitle = ({
   const activeClass =
     "text-black transition-colors bg-black text-zinc-100 decoration-black decoration-2 underline-offset-4 p-2 py-1";
   const inactiveClass =
-    "text-zinc-500  transition-colors p-2 py-1 hover:bg-zinc-500 hover:text-white";
+    "text-zinc-600 transition-colors p-2 py-1 hover:bg-black hover:text-zinc-100";
 
   return (
     <section className="pattern-master-light relative w-full overflow-hidden border-b border-zinc-200 bg-white py-16 text-zinc-900">
@@ -44,7 +44,7 @@ export const HeaderTitle = ({
 
           <div className="mt-4 flex items-center space-x-6 select-none md:mt-0">
             <div className="dots-decal text-black opacity-30"></div>
-            <div className="mono text-right text-[9px] leading-tight text-zinc-500">
+            <div className="mono text-right text-[9px] leading-tight text-zinc-600">
               <div>{specLine1}</div>
               <div>{specLine2}</div>
               <div className="font-extrabold text-black uppercase">
