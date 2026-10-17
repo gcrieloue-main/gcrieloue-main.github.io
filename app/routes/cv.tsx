@@ -9,70 +9,56 @@ import { Footer } from "~/components/ui/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Gilles CRIELOUE" },
+    { title: "Gilles CRIELOUE — Développeur Full-Stack Senior & Freelance" },
     {
       name: "description",
-      content: "Gilles CRIELOUE - Développeur full-stack senior",
+      content:
+        "Profil professionnel, compétences techniques, formation et expériences de Gilles CRIELOUE, ingénieur logiciel senior full-stack.",
     },
   ];
 }
 
 export default function CV() {
   return (
-    <div className="min-h-screen">
-      <div className="grain"></div>
-      <HeaderTitle
-        activeTab="cv"
-        badgeText="PROFILE"
-        bracketText="[ FULL_STACK_DEVELOPER ]"
-        specLine1="MODEL SPECIFICATION: TYPE-01"
-        specLine2="SPEC_DIR: //05.B25.2026"
-        specBold="VALUABLE ASSET"
-      />
+    <div className="flex min-h-screen flex-col bg-[#fafafa]">
+      <HeaderTitle activeTab="cv" />
 
-      <div className="hazard-bar-inverted"></div>
-
-      <div className="border-t-2">
-        <main id="cv">
-          <section className="container mx-auto px-5 max-md:px-2">
-            <div className="mt-14 flex gap-14 max-lg:flex-col">
-              <div className="pat-10 flex-1">
-                <About />
-              </div>
-              <div className="flex-1 max-lg:mt-14">
-                <Skills />
-              </div>
-            </div>
-          </section>
-
-          <div className="hazard-bar mt-14 rounded-md"></div>
-
-          <section id="cv-content" className="pattern-dense-grid">
+      <main id="cv" className="flex-1">
+        {/* Intro Section: About & Skills */}
+        <section className="container mx-auto max-w-6xl px-6 py-12 md:py-20">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
             <motion.div
-              className="container mx-auto px-5 pt-14 max-md:px-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0 }}
+              className="lg:col-span-6"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Education />
+              <About />
             </motion.div>
 
-            <div className="hazard-bar-inverted mt-10"></div>
-
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0 }}
+              className="lg:col-span-6"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
-              <WorkExperiences />
+              <Skills />
             </motion.div>
-          </section>
-        </main>
-      </div>
+          </div>
+        </section>
 
-      <div className="hazard-bar"></div>
+        {/* Education & Certifications Section (03) */}
+        <section className="container mx-auto max-w-6xl border-t border-zinc-200/80 px-6 py-16 md:py-24">
+          <Education />
+        </section>
+
+        {/* Work Experiences Section (04) */}
+        <WorkExperiences />
+      </main>
 
       <Footer />
     </div>

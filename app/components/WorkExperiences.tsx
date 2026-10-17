@@ -6,18 +6,17 @@ export function WorkExperiences() {
   return (
     <div
       id="experience"
-      className="pattern-paper-grid relative w-full overflow-hidden border-b border-zinc-300 bg-[#fbfbfb] py-20 text-zinc-900"
+      className="relative w-full border-t border-zinc-200/80 bg-zinc-50/40 py-16 text-zinc-900 md:py-24"
     >
-      <div className="container mx-auto px-5 max-md:px-2">
+      <div className="container mx-auto max-w-6xl px-6">
         <Title
           level="h2"
           icon={<BriefcaseBusiness />}
-          alternative="light"
-          subtitle="SECTION_EXPERIENCES // DESCRIPTIONS"
+          subtitle="04 • Parcours professionnel"
         >
           Expériences
         </Title>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
           <WorkExperience
             date="07/2024 - Aujourd'hui"
             title="Decathlon Digital"

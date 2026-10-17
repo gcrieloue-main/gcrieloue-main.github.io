@@ -1,56 +1,88 @@
-import { ShieldCheck } from "lucide-react";
+import { Sparkles, Code2, Layers, Cloud, GitBranch } from "lucide-react";
 import { Languages } from "./Languages";
 import Title from "./ui/Title";
 
 export const Skills = () => {
+  const skillCategories = [
+    {
+      title: "Langages",
+      icon: <Code2 className="h-4 w-4 text-zinc-500" />,
+      skills: ["Java", "Kotlin", "TypeScript", "JavaScript", "SQL", "Python"],
+    },
+    {
+      title: "Frameworks & Écosystèmes",
+      icon: <Layers className="h-4 w-4 text-zinc-500" />,
+      skills: [
+        "Spring Boot",
+        "React",
+        "React Router",
+        "Vue.js",
+        "Angular",
+        "Node.js",
+        "Tailwind CSS",
+      ],
+    },
+    {
+      title: "Cloud & Données",
+      icon: <Cloud className="h-4 w-4 text-zinc-500" />,
+      skills: [
+        "AWS (Lambda, API Gateway...)",
+        "GCP",
+        "Kubernetes",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Oracle",
+      ],
+    },
+    {
+      title: "DevOps & Méthodes",
+      icon: <GitBranch className="h-4 w-4 text-zinc-500" />,
+      skills: [
+        "GitOps (Flux)",
+        "GitHub Actions",
+        "GitLab CI",
+        "Terraform",
+        "Docker",
+        "Scrum / Agile",
+      ],
+    },
+  ];
+
   return (
-    <div className="pat-10 flex h-full flex-col">
-      <Title
-        level="h2"
-        icon={<ShieldCheck />}
-        subtitle="SECTION_02_SKILLS"
-        decorationText="ANALYZING"
-        decorationTextSecondary="SKILLSET"
-      >
+    <div className="flex h-full flex-col">
+      <Title level="h2" icon={<Sparkles />} subtitle="02 • Savoir-faire">
         Compétences
       </Title>
-      <div className="flex flex-1 flex-col justify-between gap-10 rounded-xl p-4">
-        <article id="skills">
-          <div>
-            <h3 className="pb-2 text-sm">Langages</h3>
-            <ul className="tag-list px-0">
-              <li>Java, Kotlin</li>
-              <li>HTML, CSS, Javascript</li>
-            </ul>
-            <h3 className="pt-4 pb-2 text-sm">Frameworks / Serveurs</h3>
-            <ul className="tag-list px-0">
-              <li>Spring</li>
-              <li>Angular</li>
-              <li>Vue.js</li>
-              <li>React</li>
-            </ul>
-            <ul className="tag-list px-0">
-              <li>MongoDB</li>
-              <li>Oracle</li>
-              <li>PostgreSQL</li>
-            </ul>
-            <ul className="tag-list px-0">
-              <li>AWS</li>
-              <li>GCP</li>
-            </ul>
-            <h3 className="pt-4 pb-2 text-sm">Méthodologie / CI</h3>
-            <ul className="tag-list px-0">
-              <li>Jenkins</li>
-              <li>Gitlab</li>
-              <li>Github</li>
-            </ul>
-            <ul className="tag-list px-0">
-              <li>Méthodologie agile</li>
-              <li> SCRUM</li>
-            </ul>
-          </div>
+
+      <div className="space-y-6">
+        <article id="skills" className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {skillCategories.map((category) => (
+            <div
+              key={category.title}
+              className="card-minimal flex flex-col justify-between p-5"
+            >
+              <div>
+                <div className="mb-3 flex items-center gap-2">
+                  {category.icon}
+                  <h3 className="font-mono text-xs font-medium tracking-wider text-zinc-500 uppercase">
+                    {category.title}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {category.skills.map((skill) => (
+                    <span key={skill} className="tag">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </article>
-        <div className="mt-10">
+
+        {/* Languages block */}
+        <div className="pt-2">
           <Languages />
         </div>
       </div>

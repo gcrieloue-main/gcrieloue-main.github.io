@@ -1,510 +1,149 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @plugin "@tailwindcss/typography";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-  --background-image-dot: url("/images/dot.jpeg");
-}
-
-@layer components {
-  .tag-list > *,
-  .tag {
-    @apply m-1 inline-block border px-2 py-1 font-mono text-sm;
-  }
-
-  .tag-list > *,
-  .tag {
-    @apply m-1 inline-block border px-2 py-1 font-mono text-sm;
-  }
-
-  .tag-list-dark > *,
-  .tag-dark {
-    @apply border-zinc-400;
-  }
-}
-
-.clip-slant-right {
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
-}
-
-pre.shiki {
-  @apply overflow-x-auto rounded-xl border border-zinc-800 !bg-zinc-950/40 p-4 font-mono text-sm leading-relaxed;
-}
-
-html,
-body {
-  @apply bg-white dark:bg-[#060c18];
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-}
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
-
-.dark {
-  --background: oklch(0.1 0.055 265);
-  --foreground: oklch(0.97 0.003 247.858);
-  --card: oklch(0.17 0.06 265);
-  --card-foreground: oklch(0.97 0.003 247.858);
-  --popover: oklch(0.17 0.06 265);
-  --popover-foreground: oklch(0.97 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.17 0.06 265);
-  --secondary: oklch(0.24 0.055 263);
-  --secondary-foreground: oklch(0.97 0.003 247.858);
-  --muted: oklch(0.24 0.055 263);
-  --muted-foreground: oklch(0.73 0.03 255);
-  --accent: oklch(0.24 0.055 263);
-  --accent-foreground: oklch(0.97 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 18%);
-  --input: oklch(1 0 0 / 22%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.17 0.06 265);
-  --sidebar-foreground: oklch(0.97 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.97 0.003 247.858);
-  --sidebar-accent: oklch(0.24 0.055 263);
-  --sidebar-accent-foreground: oklch(0.97 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 18%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+    "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  --font-mono:
+    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e4e4e7;
+  }
+
+  html {
+    background-color: #fafafa;
+    color: #09090b;
+    font-family: var(--font-sans);
+    font-size-adjust: from-font;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: #fafafa;
+    color: #09090b;
+    line-height: 1.6;
+    min-height: 100vh;
   }
 
-  /* Grid Dots / Decals */
-  .dots-decal {
-    background-image: radial-gradient(
-      circle,
-      currentColor 1px,
-      transparent 1px
-    );
-    background-size: 8px 8px;
-    width: 40px;
-    height: 24px;
+  /* Typographic hierarchy and balance rules */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+    font-size-adjust: from-font;
+    letter-spacing: -0.03em;
+    color: #09090b;
+    font-weight: 600;
   }
 
-  /* Screen Grain overlay */
-
-  .grain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.015;
-    pointer-events: none;
-    z-index: 9999;
+  p,
+  li,
+  blockquote {
+    text-wrap: pretty;
+    font-size-adjust: from-font;
   }
 
-  .pat-micro-dots {
-    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
-    background-size: 10px 10px;
-  }
-  .pat-fine-diagonal-stripes {
-    background-image: repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.06) 0,
-      rgba(255, 255, 255, 0.06) 2px,
-      transparent 2px,
-      transparent 10px
-    );
-  }
-  .pat-micro-grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 4px 4px;
-  }
-  .pat-corner-gradient {
-    background-image: radial-gradient(
-      circle at 0 0,
-      rgba(255, 255, 255, 0.05) 0%,
-      transparent 70%
-    );
-  }
-  .pat-horizontal-slats {
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 19px,
-      rgba(255, 255, 255, 0.08) 19px,
-      rgba(255, 255, 255, 0.08) 20px
-    );
-  }
-  .pat-concentric-circles {
-    background: repeating-radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.03) 0,
-      rgba(255, 255, 255, 0.03) 2px,
-      transparent 2px,
-      transparent 15px
-    );
-  }
-  .pat-thick-diagonal-stripes {
-    background-image: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.05) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(255, 255, 255, 0.05) 75%,
-      transparent 75%,
-      transparent
-    );
-    background-size: 20px 20px;
-  }
-  .pat-split-grid {
-    background:
-      linear-gradient(90deg, #0a0a0a 50%, transparent 50%),
-      linear-gradient(rgba(255, 255, 255, 0.05) 50%, transparent 50%);
-    background-size: 10px 10px;
-  }
-  .pat-bipolar-dots {
-    background:
-      radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px),
-      radial-gradient(
-        circle at 0 0,
-        rgba(255, 255, 255, 0.3) 1px,
-        transparent 1px
-      );
-    background-size: 15px 15px;
-  }
-  .pat-reverse-stripes {
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 5px,
-      rgba(255, 255, 255, 0.02) 5px,
-      rgba(255, 255, 255, 0.02) 10px
-    );
-  }
-  .pat-horizontal-scanlines {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(255, 255, 255, 0.05) 50%,
-      transparent 100%
-    );
-    background-size: 100% 4px;
-  }
-  .pat-polka-dots {
-    background-image: radial-gradient(
-      rgba(255, 255, 255, 0.08) 15%,
-      transparent 16%
-    );
-    background-size: 16px 16px;
-    background-position: 8px 8px;
-  }
-  .pat-vertical-pinstripes {
-    background: repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 10px,
-      rgba(255, 255, 255, 0.03) 10px,
-      rgba(255, 255, 255, 0.03) 11px
-    );
-  }
-  .pat-dual-radial {
-    background:
-      radial-gradient(
-        circle at 100% 100%,
-        rgba(255, 255, 255, 0.05) 0,
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 0% 0%,
-        rgba(255, 255, 255, 0.02) 0,
-        transparent 40%
-      );
-  }
-  .pat-hex-mesh {
-    background-image:
-      linear-gradient(
-        30deg,
-        rgba(255, 255, 255, 0.02) 12%,
-        transparent 12.5%,
-        transparent 87%,
-        rgba(255, 255, 255, 0.02) 87.5%,
-        rgba(255, 255, 255, 0.02)
-      ),
-      linear-gradient(
-        150deg,
-        rgba(255, 255, 255, 0.02) 12%,
-        transparent 12.5%,
-        transparent 87%,
-        rgba(255, 255, 255, 0.02) 87.5%,
-        rgba(255, 255, 255, 0.02)
-      ),
-      linear-gradient(
-        60deg,
-        rgba(255, 255, 255, 0.03) 25%,
-        transparent 25.5%,
-        transparent 75%,
-        rgba(255, 255, 255, 0.03) 75.5%,
-        rgba(255, 255, 255, 0.03)
-      ),
-      linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.03) 25%,
-        transparent 25.5%,
-        transparent 75%,
-        rgba(255, 255, 255, 0.03) 75.5%,
-        rgba(255, 255, 255, 0.03)
-      );
-    background-size: 40px 70px;
-  }
-  .pat-diamond-grid {
-    background:
-      linear-gradient(45deg, #0f0f0f 25%, transparent 25%),
-      linear-gradient(-45deg, #0f0f0f 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #0f0f0f 75%),
-      linear-gradient(-45deg, transparent 75%, #0f0f0f 75%);
-    background-size: 20px 20px;
-  }
-  .pattern-concrete {
-    background-color: #eaeaea;
-    background-image:
-      radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-      repeating-linear-gradient(
-        45deg,
-        rgba(0, 0, 0, 0.01) 0,
-        rgba(0, 0, 0, 0.01) 1px,
-        transparent 1px,
-        transparent 10px
-      );
-    background-size:
-      30px 30px,
-      12px 12px;
+  /* Unitless line-height scaling */
+  h1 {
+    line-height: 1.15;
   }
 
-  .pattern-paper-grid {
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
-    background-size: 20px 20px;
+  h2 {
+    line-height: 1.25;
   }
 
-  /* Textures & Background structures */
-  .pattern-stripes {
-    background-image: repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.02) 0,
-      rgba(255, 255, 255, 0.02) 2px,
-      transparent 2px,
-      transparent 10px
-    );
+  h3 {
+    line-height: 1.35;
   }
-  .pattern-hex {
-    background-image:
-      radial-gradient(
-        circle at 50% 50%,
-        rgba(255, 255, 255, 0.03) 2px,
-        transparent 2px
-      ),
-      linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-    background-size: 20px 20px;
+
+  /* Code blocks */
+  pre.shiki {
+    overflow-x: auto;
+    border-radius: 0.75rem;
+    border: 1px solid #27272a;
+    background-color: #09090b !important;
+    padding: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: #f4f4f5;
   }
-  .pattern-dense-grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-    background-size: 15px 15px;
+}
+
+@layer components {
+  /* Minimalist tags & chips */
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
-  /* Industrial Hazard Tape Patterns */
-  .hazard-bar {
-    background: repeating-linear-gradient(
-      -45deg,
-      #0a0a0d,
-      #0a0a0d 10px,
-      #27272a 10px,
-      #27272a 20px
-    );
-    height: 12px;
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #e4e4e7;
+    background-color: #ffffff;
+    color: #3f3f46;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tag:hover {
+    border-color: #18181b;
+    color: #09090b;
+    background-color: #fafafa;
+  }
+
+  /* Subtle hairline dividers */
+  .hairline-divider {
+    height: 1px;
+    background-color: #e4e4e7;
     width: 100%;
   }
-  .hazard-bar-inverted {
-    background: repeating-linear-gradient(
-      -45deg,
-      #ffffff,
-      #ffffff 10px,
-      #000000 10px,
-      #000000 20px
-    );
-    height: 6px;
-    width: 100%;
-  }
-  .hazard-bar-thin {
-    height: 4px;
-    background: repeating-linear-gradient(
-      -45deg,
-      #a1a1aa,
-      #a1a1aa 8px,
-      #050508 8px,
-      #050508 16px
-    );
-    opacity: 0.6;
+
+  /* Minimalist elevated card */
+  .card-minimal {
+    background-color: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 0.75rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* CSS barcode generator class */
-  .kojima-barcode {
-    background: repeating-linear-gradient(
-      90deg,
-      #000,
-      #000 2px,
-      transparent 2px,
-      transparent 4px,
-      #000 4px,
-      #000 5px,
-      transparent 5px,
-      transparent 8px
-    );
-    width: 80px;
-    height: 24px;
-  }
-  .kojima-barcode-white {
-    background: repeating-linear-gradient(
-      90deg,
-      #fff,
-      #fff 2px,
-      transparent 2px,
-      transparent 4px,
-      #fff 4px,
-      #fff 5px,
-      transparent 5px,
-      transparent 8px
-    );
-    width: 80px;
-    height: 24px;
+  .card-minimal:hover {
+    border-color: #a1a1aa;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
   }
 
-  /* 45-Degree Chamfered Cuts */
-  .clip-header {
-    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
-  }
-  .clip-corner {
-    clip-path: polygon(
-      0px 16px,
-      16px 0px,
-      100% 0px,
-      100% calc(100% - 16px),
-      calc(100% - 16px) 100%,
-      0px 100%
-    );
-  }
-  .clip-corner-sm {
-    clip-path: polygon(
-      0px 8px,
-      8px 0px,
-      100% 0px,
-      100% calc(100% - 8px),
-      calc(100% - 8px) 100%,
-      0px 100%
-    );
-  }
-  .clip-corner-xs {
-    clip-path: polygon(
-      0px 4px,
-      4px 0px,
-      100% 0px,
-      100% calc(100% - 4px),
-      calc(100% - 4px) 100%,
-      0px 100%
-    );
+  /* Editorial kicker/category badge */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #71717a;
+    font-weight: 600;
   }
 }

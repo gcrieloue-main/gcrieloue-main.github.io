@@ -1,24 +1,24 @@
 import type { Route } from "./+types/blog";
-import { getArticles } from "~/api";
-import { Link, useSearchParams, useLoaderData } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { useStore } from "~/api";
 import { useEffect } from "react";
-import { BookOpen } from "lucide-react";
+import { BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
 import Title from "~/components/ui/Title";
 import { HeaderTitle } from "~/components/ui/HeaderTitle";
 import { Footer } from "~/components/ui/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Gilles CRIELOUE - Blog" },
+    { title: "Articles & Publications — Gilles CRIELOUE" },
     {
       name: "description",
-      content: "Articles et publications de Gilles CRIELOUE",
+      content:
+        "Retours d'expérience, réflexions et partages techniques de Gilles CRIELOUE autour du développement web, de l'architecture logicielle et de l'IA.",
     },
   ];
 }
 
-function getSnippet(html: string, maxLength: number = 220): string {
+function getSnippet(html: string, maxLength: number = 200): string {
   const temp = html.replace(/<[^>]*>/g, " ");
   return temp.length > maxLength
     ? temp.slice(0, maxLength).trim() + "..."
@@ -51,49 +51,37 @@ export default function Blog() {
   };
 
   return (
-    <div className="bg-background min-h-screen text-zinc-100">
-      <div className="grain"></div>
+    <div className="flex min-h-screen flex-col bg-[#fafafa]">
       <HeaderTitle
         activeTab="blog"
-        badgeText="ARCHIVES"
-        bracketText="[ ARTICLE_FEED_TELEM ]"
-        specLine1="TRANSMISSION: DIRECT_FEED"
-        specLine2="STATUS: ONLINE_CONNECTED"
-        specBold="KNOWLEDGE BASE"
+        subtitleText="Retours d'expérience, réflexions sur l'architecture et veille technique"
       />
 
-      <div className="hazard-bar-inverted"></div>
-
-      <main className="pattern-dense-grid min-h-[60vh] py-14">
-        <section className="container mx-auto px-5 max-md:px-2">
-          <Title
-            level="h2"
-            icon={<BookOpen />}
-            subtitle="SECTION_02_ARTICLES"
-            decorationText={`ACTIVE_PAGE: ${page}`}
-            decorationTextSecondary="DATABASE: RETRIEVED"
-          >
+      <main className="flex-1 py-12 md:py-20">
+        <section className="container mx-auto max-w-6xl px-6">
+          <Title level="h2" icon={<BookOpen />} subtitle="Publications">
             Articles
           </Title>
 
           {loading ? (
-            <div className="flex h-64 flex-col items-center justify-center space-y-4">
-              <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-white/10 border-t-white"></span>
-              <p className="mono animate-pulse text-xs text-zinc-300">
-                RETRIEVING_DATA_STREAM...
+            <div className="flex h-64 flex-col items-center justify-center space-y-3">
+              <span className="h-6 w-6 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-900"></span>
+              <p className="font-mono text-xs text-zinc-500">
+                Chargement des articles...
               </p>
             </div>
           ) : articles.length === 0 ? (
-            <div className="clip-corner flex h-64 flex-col items-center justify-center border border-dashed border-white/15 bg-white/[0.04] p-6 text-center">
-              <p className="mono text-sm text-zinc-300">
-                NO_RECORDS_FOUND_ON_PAGE: {page}
+            <div className="card-minimal mx-auto max-w-md space-y-4 p-12 text-center">
+              <p className="text-sm text-zinc-600">
+                Aucun article trouvé sur cette page.
               </p>
               {page > 1 && (
                 <button
                   onClick={() => setSearchParams({ page: "1" })}
-                  className="mono mt-4 cursor-pointer border border-white/30 px-3 py-1.5 text-xs font-bold text-zinc-200 transition-colors hover:bg-white hover:text-black"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-md bg-zinc-100 px-4 py-2 text-xs font-medium text-zinc-900 transition-colors hover:bg-zinc-200"
                 >
-                  [ RETURN_TO_PAGE_1 ]
+                  <ArrowLeft className="h-3.5 w-3.5" /> Retour à la première
+                  page
                 </button>
               )}
             </div>
@@ -103,86 +91,76 @@ export default function Blog() {
                 {articles.map((article) => (
                   <article
                     key={article.sys.id}
-                    className="group clip-corner-sm relative border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08]"
+                    className="card-minimal group flex flex-col justify-between p-6 transition-all duration-300 hover:border-zinc-400 sm:p-8"
                   >
-                    <div className="pat-micro-grid absolute inset-0 opacity-10 transition-opacity group-hover:opacity-20"></div>
-
-                    <div className="relative z-10 flex h-full flex-col justify-between">
-                      <div>
-                        <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-                          <span className="mono bg-white/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-zinc-300">
-                            ID: {article.sys.id.slice(0, 8).toUpperCase()}
-                          </span>
-                          <span className="mono text-[9px] font-bold text-zinc-400">
-                            {article.date}
-                          </span>
-                        </div>
-
-                        <h3
-                          style={{
-                            viewTransitionName: `blog-title-${article.slug}`,
-                          }}
-                          className="mb-3 text-xl font-extrabold tracking-tight text-zinc-100 uppercase transition-colors group-hover:text-white"
-                        >
-                          <Link
-                            to={`/blog/${article.slug}`}
-                            state={{ article }}
-                            viewTransition
-                            className="transition-colors hover:text-white"
-                          >
-                            {article.title}
-                          </Link>
-                        </h3>
-
-                        <p className="mb-6 font-sans text-sm leading-relaxed text-zinc-300">
-                          {getSnippet(article.content)}
-                        </p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-xs text-zinc-500">
+                          {article.date}
+                        </span>
                       </div>
 
-                      <div className="border-zinc-850 flex items-end justify-between border-t border-white/10 pt-4">
+                      <h3
+                        style={{
+                          viewTransitionName: `blog-title-${article.slug}`,
+                        }}
+                        className="text-xl font-semibold tracking-tight text-zinc-950 transition-colors group-hover:text-zinc-700 sm:text-2xl"
+                      >
                         <Link
                           to={`/blog/${article.slug}`}
                           state={{ article }}
                           viewTransition
-                          className="mono flex items-center gap-2 text-xs font-black tracking-widest text-indigo-300 uppercase transition-transform group-hover:translate-x-1 hover:text-white"
                         >
-                          [ READ_POST ] <span className="text-sm">→</span>
+                          {article.title}
                         </Link>
-                        <span className="kojima-barcode-white opacity-10 transition-opacity group-hover:opacity-25"></span>
-                      </div>
+                      </h3>
+
+                      <p className="line-clamp-3 text-sm leading-relaxed text-zinc-600">
+                        {getSnippet(article.content)}
+                      </p>
+                    </div>
+
+                    <div className="mt-6 border-t border-zinc-100 pt-6">
+                      <Link
+                        to={`/blog/${article.slug}`}
+                        state={{ article }}
+                        viewTransition
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 transition-all group-hover:gap-2.5"
+                      >
+                        <span>Lire l'article</span>
+                        <ArrowRight className="h-3.5 w-3.5 text-zinc-600" />
+                      </Link>
                     </div>
                   </article>
                 ))}
               </div>
 
-              {/* Pagination Controls */}
-              <div className="mt-14 flex items-center justify-between border-t border-white/10 pt-8">
+              {/* Minimal Pagination */}
+              <div className="flex items-center justify-between border-t border-zinc-200/80 pt-8">
                 <button
                   onClick={handlePrev}
                   disabled={page === 1}
-                  className="mono cursor-pointer border border-white/15 bg-white/[0.05] px-4 py-2.5 text-[10px] font-extrabold tracking-widest text-zinc-100 transition-all hover:border-white hover:text-white disabled:pointer-events-none disabled:opacity-20"
+                  className="inline-flex cursor-pointer items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-4 py-2 text-xs font-medium text-zinc-700 transition-all hover:bg-zinc-50 hover:text-zinc-950 disabled:pointer-events-none disabled:opacity-30"
                 >
-                  [ PREVIOUS_PAGE ]
+                  <ArrowLeft className="h-3.5 w-3.5" /> Page précédente
                 </button>
 
-                <span className="mono text-xs font-bold text-zinc-400">
-                  PAGE // {page.toString().padStart(2, "0")}
+                <span className="font-mono text-xs font-medium text-zinc-500">
+                  Page {page.toString().padStart(2, "0")}
                 </span>
 
                 <button
                   onClick={handleNext}
                   disabled={articles.length < 10}
-                  className="mono cursor-pointer border border-white/15 bg-white/[0.05] px-4 py-2.5 text-[10px] font-extrabold tracking-widest text-zinc-100 transition-all hover:border-white hover:text-white disabled:pointer-events-none disabled:opacity-20"
+                  className="inline-flex cursor-pointer items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-4 py-2 text-xs font-medium text-zinc-700 transition-all hover:bg-zinc-50 hover:text-zinc-950 disabled:pointer-events-none disabled:opacity-30"
                 >
-                  [ NEXT_PAGE ]
+                  Page suivante <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               </div>
             </div>
           )}
         </section>
       </main>
-
-      <div className="hazard-bar"></div>
 
       <Footer />
     </div>

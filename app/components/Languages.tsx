@@ -1,55 +1,38 @@
+import { Globe } from "lucide-react";
+
 export const Languages = () => {
   return (
-    <article>
-      <div className="flex max-w-80 flex-col gap-3">
-        <div className="border-zinc-850 clip-corner-xs flex items-center justify-between border bg-zinc-950/80 p-3 transition-colors duration-300 hover:border-zinc-700">
-          <div className="flex min-w-0 items-center space-x-3">
-            <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.8)]"></div>
-            <div className="min-w-0">
-              <div className="mono truncate text-[10px] leading-tight font-bold text-white">
-                FRANÇAIS
-              </div>
-              <div className="mono text-[8px] leading-none text-zinc-400 uppercase">
-                NATIVE_FLOW
-              </div>
-            </div>
+    <article className="card-minimal p-5">
+      <div className="mb-4 flex items-center gap-2">
+        <Globe className="h-4 w-4 text-zinc-500" />
+        <h3 className="font-mono text-xs font-medium tracking-wider text-zinc-500 uppercase">
+          Langues
+        </h3>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {/* French */}
+        <div className="flex items-center justify-between rounded-lg border border-zinc-200/60 bg-zinc-50 p-3">
+          <div>
+            <div className="text-sm font-semibold text-zinc-900">Français</div>
+            <div className="text-xs text-zinc-500">Langue maternelle</div>
           </div>
-          <div className="flex shrink-0 items-center space-x-4 pl-3">
-            <div className="flex gap-0.5">
-              <div className="h-1 w-3 bg-white"></div>
-              <div className="h-1 w-3 bg-white"></div>
-              <div className="h-1 w-3 bg-white"></div>
-              <div className="h-1 w-3 bg-white"></div>
-            </div>
-            <span className="mono text-[10px] font-bold text-white">
-              100% OK
-            </span>
-          </div>
+          <span className="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-medium text-zinc-600">
+            Natif
+          </span>
         </div>
 
-        <div className="border-zinc-850 clip-corner-xs flex items-center justify-between border bg-zinc-950/80 p-3 transition-colors duration-300 hover:border-zinc-700">
-          <div className="flex min-w-0 items-center space-x-3">
-            <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-600"></div>
-            <div className="min-w-0">
-              <div className="mono truncate text-[10px] leading-tight font-bold text-white">
-                ANGLAIS
-              </div>
-              <div className="mono text-[8px] leading-none text-zinc-400 uppercase">
-                TOEIC_SCORE: 820
-              </div>
+        {/* English */}
+        <div className="flex items-center justify-between rounded-lg border border-zinc-200/60 bg-zinc-50 p-3">
+          <div>
+            <div className="text-sm font-semibold text-zinc-900">Anglais</div>
+            <div className="text-xs text-zinc-500">
+              Professionnel (TOEIC 820)
             </div>
           </div>
-          <div className="flex shrink-0 items-center space-x-4 pl-3">
-            <div className="flex gap-0.5">
-              <div className="h-1 w-3 bg-white"></div>
-              <div className="h-1 w-3 bg-white"></div>
-              <div className="h-1 w-3 bg-white"></div>
-              <div className="h-1 w-3 bg-zinc-800"></div>
-            </div>
-            <span className="mono text-[10px] font-bold text-zinc-400">
-              82% EFF
-            </span>
-          </div>
+          <span className="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-medium text-zinc-600">
+            B2 / C1
+          </span>
         </div>
       </div>
     </article>

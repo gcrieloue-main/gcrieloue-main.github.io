@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import { Link, useParams, useLocation } from "react-router";
 import { HeaderTitle } from "~/components/ui/HeaderTitle";
 import { Footer } from "~/components/ui/Footer";
+import { ArrowLeft } from "lucide-react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: `Gilles CRIELOUE - Article` },
+    { title: `Article — Gilles CRIELOUE` },
     { name: "description", content: "Lecture d'un article de Gilles CRIELOUE" },
   ];
 }
@@ -16,8 +17,10 @@ export default function BlogPost() {
   const { slug } = useParams();
   const { article, loading, fetchArticle } = useStore();
   const location = useLocation();
-  const currentTitle = loading ? location.state.article.title : article?.title;
-  const currentDate = loading ? location.state.article.date : article?.date;
+  const currentTitle = loading
+    ? location.state?.article?.title
+    : article?.title;
+  const currentDate = loading ? location.state?.article?.date : article?.date;
 
   useEffect(() => {
     if (slug) {
@@ -26,106 +29,78 @@ export default function BlogPost() {
   }, [slug, fetchArticle]);
 
   return (
-    <div className="bg-background min-h-screen text-zinc-100">
-      <div className="grain"></div>
+    <div className="flex min-h-screen flex-col bg-[#fafafa]">
       <HeaderTitle
         activeTab="blog"
-        badgeText="ARTICLE"
-        bracketText="[ READING_STREAM ]"
-        specLine1="DECRYPT: COMPLETE"
-        specLine2="OUTPUT: SECURE_VIEW"
-        specBold="SINGLE RECORD"
+        subtitleText="Retours d'expérience, réflexions sur l'architecture et veille technique"
       />
 
-      <div className="hazard-bar-inverted"></div>
-
-      <main className="pattern-dense-grid min-h-[60vh] py-14">
-        <section className="container mx-auto max-w-4xl px-5 max-md:px-2">
+      <main className="flex-1 py-12 md:py-20">
+        <article className="container mx-auto max-w-4xl px-6">
+          {/* Back button */}
           <div className="mb-10">
             <Link
               to="/blog"
-              className="mono group flex w-fit items-center gap-2 text-xs font-black tracking-widest text-zinc-400 uppercase hover:text-white"
+              className="inline-flex items-center gap-2 text-xs font-medium text-zinc-500 transition-colors hover:text-zinc-950"
             >
-              <span className="text-sm transition-transform group-hover:-translate-x-1">
-                ←
-              </span>{" "}
-              [ BACK_TO_BLOG ]
+              <ArrowLeft className="h-3.5 w-3.5" />
+              <span>Retour à la liste des articles</span>
             </Link>
           </div>
 
           {loading && !article ? (
-            <div className="flex h-64 flex-col items-center justify-center space-y-4">
-              <span className="mono h-8 w-8 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></span>
-              <p className="mono animate-pulse text-xs text-zinc-400">
-                RETRIEVING_ARTICLE_DATA...
+            <div className="flex h-64 flex-col items-center justify-center space-y-3">
+              <span className="h-6 w-6 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-900"></span>
+              <p className="font-mono text-xs text-zinc-500">
+                Chargement du contenu...
               </p>
             </div>
           ) : !article ? (
-            <div className="clip-corner flex h-64 flex-col items-center justify-center border border-dashed border-white/15 bg-white/[0.04] p-6 text-center">
-              <p className="mono text-sm text-zinc-300">
-                ERROR: ARTICLE_NOT_FOUND (SLUG: {slug})
+            <div className="card-minimal mx-auto max-w-md space-y-4 p-12 text-center">
+              <p className="text-sm text-zinc-600">
+                Cet article est introuvable ou a été déplacé.
               </p>
               <Link
                 to="/blog"
-                className="mono mt-4 cursor-pointer border border-white/30 px-3 py-1.5 text-xs font-bold text-zinc-200 transition-colors hover:bg-white hover:text-black"
+                className="inline-flex items-center gap-2 rounded-md bg-zinc-100 px-4 py-2 text-xs font-medium text-zinc-900 transition-colors hover:bg-zinc-200"
               >
-                [ RETURN_TO_BLOG ]
+                <ArrowLeft className="h-3.5 w-3.5" /> Retour aux articles
               </Link>
             </div>
           ) : (
-            <article className="clip-corner relative border border-white/12 bg-white/[0.05] p-8 md:p-12">
-              <div className="pat-micro-grid absolute inset-0 opacity-10"></div>
-
-              <div className="relative z-10">
-                <div className="mb-6 flex flex-wrap items-center gap-3">
-                  <span className="mono border border-white/20 bg-white/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-white">
-                    {currentDate && "PUBLISHED // " + currentDate}
-                  </span>
-                  {!loading && article && (
-                    <span className="mono text-[9px] font-bold text-zinc-400 select-none">
-                      REF: {article.sys.id.toUpperCase()}
-                    </span>
-                  )}
-                </div>
+            <div className="card-minimal p-8 sm:p-12 md:p-16">
+              <header className="mb-10 space-y-4 border-b border-zinc-200/80 pb-8">
+                {currentDate && (
+                  <time className="block font-mono text-xs font-medium text-zinc-500">
+                    Publié le {currentDate}
+                  </time>
+                )}
 
                 <h1
                   style={{ viewTransitionName: `blog-title-${slug}` }}
-                  className="mb-8 border-b border-white/10 pb-6 text-3xl leading-tight font-black tracking-tighter text-white uppercase md:text-5xl"
+                  className="text-3xl leading-tight font-semibold tracking-tight text-zinc-950 sm:text-4xl md:text-5xl"
                 >
                   {currentTitle}
                 </h1>
+              </header>
 
-                {loading || !article ? (
-                  <div className="flex h-32 flex-col items-center justify-center space-y-2">
-                    <span className="mono h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-white"></span>
-                    <p className="mono animate-pulse text-[10px] text-zinc-300">
-                      DECRYPTING_DATA_STREAM...
-                    </p>
-                  </div>
-                ) : (
-                  <>
-                    <div className="prose prose-invert prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-white prose-h4:text-zinc-100 prose-h5:text-zinc-200 prose-h6:text-zinc-300 prose-a:text-indigo-300 prose-a:underline hover:prose-a:text-white prose-a:transition-colors prose-strong:text-white prose-strong:font-bold prose-code:text-zinc-100 prose-code:bg-white/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-white/[0.05] prose-pre:border prose-pre:border-white/10 prose-pre:p-4 prose-pre:rounded-md prose-img:rounded-md prose-img:border prose-img:border-white/10 prose-hr:border-white/10 max-w-none font-sans leading-relaxed text-zinc-100">
-                      <div
-                        dangerouslySetInnerHTML={{ __html: article.content }}
-                      />
-                    </div>
-
-                    <div className="mt-14 flex items-center justify-between border-t border-white/10 pt-8 select-none">
-                      <div className="mono text-[9px] leading-tight text-zinc-500">
-                        <div>DATA STREAM SECURED // VALUABLE RECORD</div>
-                        <div>NEURAL-TEK DECRYPTER v1.0.4</div>
-                      </div>
-                      <div className="kojima-barcode-white opacity-20"></div>
-                    </div>
-                  </>
-                )}
+              <div className="prose prose-zinc prose-base sm:prose-lg prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-zinc-950 prose-p:leading-relaxed prose-p:text-zinc-700 prose-a:text-zinc-950 prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-zinc-600 prose-strong:text-zinc-950 prose-code:font-mono prose-code:text-zinc-800 prose-code:bg-zinc-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none max-w-none">
+                <div dangerouslySetInnerHTML={{ __html: article.content }} />
               </div>
-            </article>
-          )}
-        </section>
-      </main>
 
-      <div className="hazard-bar"></div>
+              <footer className="mt-16 flex items-center justify-between border-t border-zinc-200/80 pt-8">
+                <Link
+                  to="/blog"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-900 underline-offset-4 hover:underline"
+                >
+                  <ArrowLeft className="h-3.5 w-3.5" />
+                  <span>Tous les articles</span>
+                </Link>
+              </footer>
+            </div>
+          )}
+        </article>
+      </main>
 
       <Footer />
     </div>
