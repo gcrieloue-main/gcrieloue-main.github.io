@@ -53,10 +53,10 @@ export const Education = () => {
         <motion.article
           id="education"
           className="space-y-4 lg:col-span-2 print:col-span-2 print:space-y-2"
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           {diplomas.map((item) => (
             <div
@@ -81,10 +81,10 @@ export const Education = () => {
         {/* Certifications */}
         <motion.div
           className="space-y-4 lg:col-span-1 print:col-span-1 print:space-y-2"
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="card-minimal flex h-full flex-col justify-between p-5 print:border-0 print:bg-transparent print:p-0">
             <div className="mb-4 flex items-center gap-2 print:mb-1.5">

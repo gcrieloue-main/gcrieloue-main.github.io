@@ -23,11 +23,11 @@ export const WorkExperience: FC<PropsWithChildren<WorkExperienceProps>> = ({
 
   return (
     <motion.article
-      className="card-minimal relative p-6 md:p-8 print:mb-3.5 print:rounded-none print:border-x-0 print:border-t print:border-b-0 print:border-zinc-200 print:bg-transparent print:p-0 print:pt-3 print:pb-1 first:print:border-t-0 first:print:pt-0"
-      initial={{ opacity: 0, y: 15 }}
+      className="card-minimal relative p-6 md:p-8 print:mb-2.5 print:rounded-none print:border-x-0 print:border-t print:border-b-0 print:border-zinc-200 print:bg-transparent print:p-0 print:pt-2.5 print:pb-0.5 first:print:border-t-0 first:print:pt-0"
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+      transition={{ duration: 0.8, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
     >
       <SubTitle level="h3" subTitle={date}>
         {title}
