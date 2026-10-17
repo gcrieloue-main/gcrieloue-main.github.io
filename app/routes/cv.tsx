@@ -24,6 +24,23 @@ export default function CV() {
       <HeaderTitle activeTab="cv" />
 
       <main id="cv" className="flex-1">
+        {/* Print-only Header */}
+        <div className="container mx-auto mb-4 hidden max-w-6xl border-b border-zinc-300 px-6 pt-6 pb-6 print:block">
+          <h1 className="text-2xl font-bold tracking-tight text-black">
+            Gilles Crieloue
+          </h1>
+          <p className="mt-0.5 text-sm font-medium text-zinc-800">
+            Ingénieur Logiciel Senior Full-Stack & Freelance IT
+          </p>
+          <div className="mt-2 flex gap-4 font-mono text-xs text-zinc-600">
+            <span>Nantes, France</span>
+            <span>•</span>
+            <span>github.com/gcrieloue-main</span>
+            <span>•</span>
+            <span>linkedin.com/in/gilles-crieloue</span>
+          </div>
+        </div>
+
         {/* Intro Section: About & Skills */}
         <section className="container mx-auto max-w-6xl px-6 py-12 md:py-20">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">

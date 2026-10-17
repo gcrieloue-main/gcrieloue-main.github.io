@@ -11,6 +11,7 @@ interface TitleProps {
   className?: string;
   icon?: React.ReactNode;
   alternative?: "light" | "dark";
+  action?: React.ReactNode;
 }
 
 const cleanSubtitle = (sub?: string): string | null => {
@@ -32,6 +33,7 @@ const Title = ({
   level = "h2",
   className = "",
   icon,
+  action,
 }: TitleProps) => {
   const Tag = level;
   const label = cleanSubtitle(subtitle);
@@ -40,7 +42,7 @@ const Title = ({
     <div
       className={`mb-8 border-b border-zinc-200/80 pb-4 md:mb-12 ${className}`}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div className="space-y-1.5">
           {label && (
             <span className="font-mono text-[11px] font-medium tracking-wider text-zinc-500 uppercase">
@@ -58,6 +60,10 @@ const Title = ({
             </Tag>
           </div>
         </div>
+
+        {action && (
+          <div className="w-full shrink-0 pb-0.5 sm:w-auto">{action}</div>
+        )}
       </div>
     </div>
   );

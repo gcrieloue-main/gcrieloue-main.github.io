@@ -1,16 +1,8 @@
-import { useStore } from "~/api";
-import { useEffect } from "react";
 import Title from "./ui/Title";
-import { User, MapPin, CheckCircle2 } from "lucide-react";
+import { User, MapPin } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 export const About = () => {
-  const { cvParagraphs, fetchCvParagraphs } = useStore();
-
-  useEffect(() => {
-    void fetchCvParagraphs();
-  }, [fetchCvParagraphs]);
-
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {

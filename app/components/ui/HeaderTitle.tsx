@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Printer } from "lucide-react";
 
 interface HeaderTitleProps {
   activeTab: "cv" | "blog";
@@ -131,8 +131,21 @@ export const HeaderTitle = ({
               </Link>
             </nav>
 
-            {/* Quick social links */}
+            {/* Quick social links & print action */}
             <div className="flex items-center gap-1.5 border-l border-zinc-200 pl-3">
+              {activeTab === "cv" && (
+                <button
+                  onClick={() => window.print()}
+                  className="flex cursor-pointer items-center gap-1 rounded-md p-1.5 text-xs font-medium text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-950"
+                  title="Imprimer ou enregistrer le CV en PDF"
+                  aria-label="Imprimer ou exporter en PDF"
+                >
+                  <Printer className="h-4 w-4" />
+                  <span className="hidden font-mono text-[11px] sm:inline">
+                    PDF
+                  </span>
+                </button>
+              )}
               <a
                 href="https://github.com/gcrieloue-main"
                 target="_blank"
