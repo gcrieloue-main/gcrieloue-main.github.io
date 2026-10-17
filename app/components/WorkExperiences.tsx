@@ -6,9 +6,9 @@ export function WorkExperiences() {
   return (
     <div
       id="experience"
-      className="relative w-full border-t border-zinc-200/80 bg-zinc-50/40 py-16 text-zinc-900 md:py-24"
+      className="relative w-full border-t border-zinc-200/80 bg-zinc-50/40 py-16 text-zinc-900 md:py-24 print:break-before-page print:border-t-0 print:bg-transparent print:p-0 print:pt-4"
     >
-      <div className="container mx-auto max-w-6xl px-6">
+      <div className="container mx-auto max-w-6xl px-6 print:p-0">
         <Title
           level="h2"
           icon={<BriefcaseBusiness />}
@@ -16,7 +16,7 @@ export function WorkExperiences() {
         >
           Expériences
         </Title>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 print:gap-2.5">
           <WorkExperience
             date="07/2024 - Aujourd'hui"
             title="Decathlon Digital"
@@ -327,20 +327,13 @@ export function WorkExperiences() {
             date="04/2011 - 07/2013"
             title="Centre de services multi-client"
             skills={[
-              "C#, ASP.NET ,",
+              "C#, ASP.NET",
               "Reporting Services (SSRS)",
-              "Visual Studio 2010 et 2012",
+              "Visual Studio",
               "SQL Server",
-              "C#, Windows Forms, ASP.NET,",
-              "Reporting Services (SSRS),",
-              "Visual Studio 2010 et 2012",
-              "Visual Studio 2005,",
-              "SQL Server 2005,",
+              "Windows Forms",
               ".NET (C#/ASP)",
-              ".NET,",
-              "SSIS (SQL server Integration Services),",
-              "Visual Studio 2005,",
-              "SQL Server 2005",
+              "SSIS",
               "Javascript",
             ]}
             logoSrc="images/marianne.png"
@@ -352,22 +345,24 @@ export function WorkExperiences() {
             <h4 id="centrenationaldedveloppementdusportcnds">
               Centre National de Développement du Sport (CNDS)
             </h4>
-            <h4>Mission : </h4>
+            <h4 className="print:hidden">Mission : </h4>
             <ul>
               <li>
                 développement et tests pour un lot d'évolution sur Orassamis,
                 une application de gestion des subventions aux clubs de sport.
               </li>
             </ul>
-            <p>Rôle : </p>
-            <ul>
-              <li>conception,</li>
-              <li>développement,</li>
-              <li>suivi de la qualité (CAST, Jenkins),</li>
-              <li>migration de Framework</li>
-            </ul>
+            <div className="print:hidden">
+              <p>Rôle : </p>
+              <ul>
+                <li>conception,</li>
+                <li>développement,</li>
+                <li>suivi de la qualité (CAST, Jenkins),</li>
+                <li>migration de Framework</li>
+              </ul>
+            </div>
             <h4 id="securitas">Securitas</h4>
-            <h4>Mission : </h4>
+            <h4 className="print:hidden">Mission : </h4>
             <ul>
               <li>
                 développement et tests pour un lot d'évolutions sur une
@@ -380,18 +375,20 @@ export function WorkExperiences() {
                 complête des solutions et projets Visual Studio
               </li>
             </ul>
-            <p>Rôle : </p>
-            <ul>
-              <li>conception,</li>
-              <li>développement,</li>
-              <li>suivi de la qualité (CAST, Jenkins),</li>
-              <li>migration de Framework</li>
-            </ul>
+            <div className="print:hidden">
+              <p>Rôle : </p>
+              <ul>
+                <li>conception,</li>
+                <li>développement,</li>
+                <li>suivi de la qualité (CAST, Jenkins),</li>
+                <li>migration de Framework</li>
+              </ul>
+            </div>
             <h4 id="groupementdintrtpublicdemodernisationdesdclarationssocialesgip">
               Groupement d'Intérêt Public de Modernisation des déclarations
               sociales (GIP)
             </h4>
-            <h4>Mission : </h4>
+            <h4 className="print:hidden">Mission : </h4>
             <ul>
               <li>
                 évolution des batchs de modification en masse pour ajouter la
@@ -404,7 +401,7 @@ export function WorkExperiences() {
                 sociales).
               </li>
             </ul>
-            <p>Rôle : Conception,développement</p>
+            <p className="print:hidden">Rôle : Conception,développement</p>
             <h4 id="agencenationalepourlarechercheanr">
               Agence Nationale pour la Recherche (ANR)
             </h4>
@@ -412,7 +409,7 @@ export function WorkExperiences() {
               L'application de l'ANR permet la soumission, l'évaluation, le
               financement et son suivi des projets de recherche.
             </p>
-            <h4>Mission : </h4>
+            <h4 className="print:hidden">Mission : </h4>
             <ul>
               <li>
                 MCO et développement de lots d'évolution sur l'application SIM.
@@ -422,11 +419,13 @@ export function WorkExperiences() {
                 fichier CSV vers l'application SIM.
               </li>
             </ul>
-            <p>Rôle : </p>
-            <ul>
-              <li>conception,</li>
-              <li>développement</li>
-            </ul>
+            <div className="print:hidden">
+              <p>Rôle : </p>
+              <ul>
+                <li>conception,</li>
+                <li>développement</li>
+              </ul>
+            </div>
           </WorkExperience>
           <WorkExperience
             date="11/2010 - 03/2011"

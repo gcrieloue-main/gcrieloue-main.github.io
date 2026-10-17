@@ -48,11 +48,11 @@ export const Education = () => {
         Formation
       </Title>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 print:grid-cols-3 print:gap-6">
         {/* Diplomas */}
         <motion.article
           id="education"
-          className="space-y-4 lg:col-span-2"
+          className="space-y-4 lg:col-span-2 print:col-span-2 print:space-y-2"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -61,17 +61,17 @@ export const Education = () => {
           {diplomas.map((item) => (
             <div
               key={item.degree}
-              className="card-minimal flex flex-col gap-2 p-5 sm:flex-row sm:items-baseline sm:justify-between sm:p-6"
+              className="card-minimal flex flex-col gap-2 p-5 sm:flex-row sm:items-baseline sm:justify-between sm:p-6 print:border-0 print:border-b print:border-zinc-100 print:bg-transparent print:p-0 print:py-1.5 last:print:border-b-0"
             >
               <div>
-                <h3 className="text-base font-semibold tracking-tight text-zinc-950">
+                <h3 className="text-base font-semibold tracking-tight text-zinc-950 print:text-[9.5pt]">
                   {item.degree}
                 </h3>
-                <p className="mt-0.5 text-sm text-zinc-500">
+                <p className="mt-0.5 text-sm text-zinc-500 print:text-[8.5pt] print:text-zinc-600">
                   {item.institution}
                 </p>
               </div>
-              <span className="shrink-0 font-mono text-xs font-medium text-zinc-500">
+              <span className="shrink-0 font-mono text-xs font-medium text-zinc-500 print:text-[8.5pt]">
                 {item.period}
               </span>
             </div>
@@ -80,43 +80,45 @@ export const Education = () => {
 
         {/* Certifications */}
         <motion.div
-          className="space-y-4"
+          className="space-y-4 lg:col-span-1 print:col-span-1 print:space-y-2"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="card-minimal flex h-full flex-col justify-between p-5">
-            <div className="mb-4 flex items-center gap-2">
-              <Award className="h-4 w-4 text-zinc-500" />
-              <h3 className="font-mono text-xs font-medium tracking-wider text-zinc-500 uppercase">
+          <div className="card-minimal flex h-full flex-col justify-between p-5 print:border-0 print:bg-transparent print:p-0">
+            <div className="mb-4 flex items-center gap-2 print:mb-1.5">
+              <span className="print:hidden">
+                <Award className="h-4 w-4 text-zinc-500" />
+              </span>
+              <h3 className="font-mono text-xs font-medium tracking-wider text-zinc-500 uppercase print:text-[9pt] print:font-semibold print:text-zinc-900">
                 Certifications Officielles
               </h3>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 print:space-y-2">
               {certifications.map((cert) => (
                 <a
                   key={cert.name}
                   href={cert.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-zinc-200/60 bg-zinc-50 p-3 transition-all duration-200 hover:bg-zinc-100/80"
+                  className="group flex items-center gap-3 rounded-lg border border-zinc-200/60 bg-zinc-50 p-3 transition-all duration-200 hover:bg-zinc-100/80 print:border-0 print:bg-transparent print:p-0"
                 >
                   <img
                     src={cert.image}
                     alt={cert.name}
-                    className="h-10 w-10 shrink-0 object-contain"
+                    className="h-10 w-10 shrink-0 object-contain print:h-7 print:w-7"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-xs font-semibold text-zinc-900 group-hover:text-black">
+                    <p className="truncate text-xs font-semibold text-zinc-900 group-hover:text-black print:text-[9pt]">
                       {cert.name}
                     </p>
-                    <p className="truncate text-[11px] text-zinc-500">
+                    <p className="truncate text-[11px] text-zinc-500 print:text-[8pt]">
                       {cert.issuer}
                     </p>
                   </div>
-                  <ExternalLink className="h-3.5 w-3.5 shrink-0 text-zinc-400 transition-colors group-hover:text-zinc-900" />
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0 text-zinc-400 transition-colors group-hover:text-zinc-900 print:hidden" />
                 </a>
               ))}
             </div>

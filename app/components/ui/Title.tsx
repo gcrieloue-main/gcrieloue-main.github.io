@@ -40,29 +40,32 @@ const Title = ({
 
   return (
     <div
-      className={`mb-8 border-b border-zinc-200/80 pb-4 md:mb-12 ${className}`}
+      className={`mb-8 border-b border-zinc-200/80 pb-4 md:mb-12 print:mb-3 print:break-after-avoid print:border-zinc-300 print:pb-2 ${className}`}
+      style={{ breakAfter: "avoid", pageBreakAfter: "avoid" }}
     >
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-        <div className="space-y-1.5">
+        <div className="space-y-1.5 print:space-y-0.5">
           {label && (
-            <span className="font-mono text-[11px] font-medium tracking-wider text-zinc-500 uppercase">
+            <span className="font-mono text-[11px] font-medium tracking-wider text-zinc-500 uppercase print:text-[10px]">
               {label}
             </span>
           )}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 print:gap-2">
             {icon && (
-              <span className="text-zinc-400 [&>svg]:h-5 [&>svg]:w-5">
+              <span className="text-zinc-400 print:text-zinc-600 [&>svg]:h-5 [&>svg]:w-5 print:[&>svg]:h-4 print:[&>svg]:w-4">
                 {icon}
               </span>
             )}
-            <Tag className="text-2xl font-semibold tracking-tight text-zinc-950 md:text-3xl">
+            <Tag className="text-2xl font-semibold tracking-tight text-zinc-950 md:text-3xl print:text-lg">
               {children}
             </Tag>
           </div>
         </div>
 
         {action && (
-          <div className="w-full shrink-0 pb-0.5 sm:w-auto">{action}</div>
+          <div className="w-full shrink-0 pb-0.5 sm:w-auto print:hidden">
+            {action}
+          </div>
         )}
       </div>
     </div>

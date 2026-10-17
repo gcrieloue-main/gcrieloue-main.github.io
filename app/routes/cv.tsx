@@ -20,32 +20,35 @@ export function meta({}: Route.MetaArgs) {
 
 export default function CV() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#fafafa]">
+    <div className="flex min-h-screen flex-col bg-[#fafafa] print:block print:min-h-0 print:bg-white">
       <HeaderTitle activeTab="cv" />
 
-      <main id="cv" className="flex-1">
+      <main id="cv" className="flex-1 print:block">
         {/* Print-only Header */}
-        <div className="container mx-auto mb-4 hidden max-w-6xl border-b border-zinc-300 px-6 pt-6 pb-6 print:block">
-          <h1 className="text-2xl font-bold tracking-tight text-black">
-            Gilles Crieloue
-          </h1>
-          <p className="mt-0.5 text-sm font-medium text-zinc-800">
-            Ingénieur Logiciel Senior Full-Stack & Freelance IT
-          </p>
-          <div className="mt-2 flex gap-4 font-mono text-xs text-zinc-600">
-            <span>Nantes, France</span>
-            <span>•</span>
-            <span>github.com/gcrieloue-main</span>
-            <span>•</span>
-            <span>linkedin.com/in/gilles-crieloue</span>
+        <div className="container mx-auto mb-4 hidden max-w-6xl border-b border-zinc-300 px-6 pt-6 pb-6 print:mb-3 print:block print:p-0 print:pb-3">
+          <div className="flex items-end justify-between">
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight text-black">
+                Gilles Crieloue
+              </h1>
+              <p className="mt-0.5 text-sm font-medium text-zinc-800">
+                Ingénieur Logiciel Senior Full-Stack & Freelance IT
+              </p>
+            </div>
+            <div className="text-right font-mono text-xs text-zinc-600">
+              <p>Nantes, France • Remote</p>
+              <p className="text-[11px] text-zinc-500">
+                github.com/gcrieloue-main • linkedin.com/in/gilles-crieloue
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Intro Section: About & Skills */}
-        <section className="container mx-auto max-w-6xl px-6 py-12 md:py-20">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+        <section className="container mx-auto max-w-6xl px-6 py-12 md:py-20 print:p-0 print:py-1">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16 print:grid-cols-2 print:gap-6">
             <motion.div
-              className="lg:col-span-6"
+              className="lg:col-span-6 print:col-span-1"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -54,7 +57,7 @@ export default function CV() {
             </motion.div>
 
             <motion.div
-              className="lg:col-span-6"
+              className="lg:col-span-6 print:col-span-1"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -69,7 +72,7 @@ export default function CV() {
         </section>
 
         {/* Education & Certifications Section (03) */}
-        <section className="container mx-auto max-w-6xl border-t border-zinc-200/80 px-6 py-16 md:py-24">
+        <section className="container mx-auto max-w-6xl border-t border-zinc-200/80 px-6 py-16 md:py-24 print:border-t-0 print:p-0 print:py-2">
           <Education />
         </section>
 

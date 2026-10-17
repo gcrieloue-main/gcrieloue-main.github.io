@@ -32,13 +32,13 @@ export const About = () => {
         À propos
       </Title>
 
-      <article id="about" className="space-y-8">
+      <article id="about" className="space-y-8 print:space-y-4">
         {/* Presentation narrative */}
         <Presentation />
 
-        {/* Highlight metric cards */}
+        {/* Highlight metric cards - hidden in print for maximum clarity and breathing room */}
         <motion.div
-          className="grid grid-cols-1 gap-3 pt-1 sm:grid-cols-3"
+          className="grid grid-cols-1 gap-3 pt-1 sm:grid-cols-3 print:hidden"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -105,8 +105,8 @@ export const About = () => {
           </motion.div>
         </motion.div>
 
-        {/* Location & Work mode */}
-        <div className="card-minimal flex flex-wrap items-center justify-between gap-4 bg-zinc-50/50 p-5">
+        {/* Location & Work mode - hidden in print as it is in the print header */}
+        <div className="card-minimal flex flex-wrap items-center justify-between gap-4 bg-zinc-50/50 p-5 print:hidden">
           <div className="flex items-center gap-3">
             <MapPin className="h-4 w-4 text-zinc-500" />
             <div>
@@ -131,8 +131,8 @@ export const About = () => {
 
 const Presentation = () => {
   return (
-    <div className="max-w-prose space-y-4 text-base leading-relaxed text-zinc-700">
-      <p className="text-lg leading-snug font-medium text-zinc-900">
+    <div className="max-w-prose space-y-4 text-base leading-relaxed text-zinc-700 print:max-w-none print:space-y-2.5 print:text-[9.5pt] print:leading-relaxed">
+      <p className="text-lg leading-snug font-medium text-zinc-900 print:text-[10.5pt] print:leading-snug print:font-semibold">
         Ingénieur logiciel senior fort de plus de 15 années d'expérience en
         conception et développement de systèmes critiques et plateformes web
         modernes.

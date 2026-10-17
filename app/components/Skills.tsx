@@ -55,7 +55,8 @@ export const Skills = () => {
         Compétences
       </Title>
 
-      <div className="space-y-6">
+      {/* Web view: interactive minimal cards */}
+      <div className="space-y-6 print:hidden">
         <article id="skills" className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {skillCategories.map((category) => (
             <div
@@ -84,6 +85,28 @@ export const Skills = () => {
         {/* Languages block */}
         <div className="pt-2">
           <Languages />
+        </div>
+      </div>
+
+      {/* Print view: borderless, airy, elegant typographic list */}
+      <div className="hidden space-y-2.5 print:block">
+        <div className="space-y-2">
+          {skillCategories.map((category) => (
+            <div key={category.title} className="text-[9pt] leading-relaxed">
+              <span className="font-semibold text-zinc-900">
+                {category.title} :{" "}
+              </span>
+              <span className="font-mono text-[8.5pt] text-zinc-700">
+                {category.skills.join(" • ")}
+              </span>
+            </div>
+          ))}
+          <div className="border-t border-zinc-200/60 pt-2 text-[9pt] leading-relaxed">
+            <span className="font-semibold text-zinc-900">Langues : </span>
+            <span className="font-mono text-[8.5pt] text-zinc-700">
+              Français (Natif) • Anglais (Professionnel, TOEIC 820)
+            </span>
+          </div>
         </div>
       </div>
     </div>

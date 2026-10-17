@@ -7,7 +7,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full border-t border-zinc-200/80 bg-white py-12 text-zinc-600 transition-colors md:py-16">
+    <footer className="w-full border-t border-zinc-200/80 bg-white py-12 text-zinc-600 transition-colors md:py-16 print:hidden">
       <div className="container mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           {/* Identity & Mission */}

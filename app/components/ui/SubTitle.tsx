@@ -21,13 +21,14 @@ const SubTitle = ({
 
   return (
     <div
-      className={`flex flex-col gap-1 border-b border-zinc-100 pb-2 sm:flex-row sm:items-baseline sm:justify-between ${className}`}
+      className={`flex flex-col gap-1 border-b border-zinc-100 pb-2 sm:flex-row sm:items-baseline sm:justify-between print:break-after-avoid print:border-b-0 print:pb-0.5 ${className}`}
+      style={{ breakAfter: "avoid", pageBreakAfter: "avoid" }}
     >
-      <Tag className="text-lg font-semibold tracking-tight text-zinc-950 md:text-xl">
+      <Tag className="text-lg font-semibold tracking-tight text-zinc-950 md:text-xl print:text-sm">
         {children}
       </Tag>
       {subTitle && (
-        <span className="shrink-0 font-mono text-xs font-normal text-zinc-500">
+        <span className="shrink-0 font-mono text-xs font-normal text-zinc-500 print:text-[10px]">
           {subTitle}
         </span>
       )}

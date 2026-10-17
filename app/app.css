@@ -154,15 +154,33 @@
 /* Print optimization for PDF export */
 @media print {
   @page {
-    margin: 12mm 15mm;
+    margin: 8mm 12mm;
     size: A4 portrait;
+  }
+
+  /* Force all animated elements (Framer Motion, transitions) to be 100% visible */
+  *,
+  *::before,
+  *::after {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
 
   html,
   body {
     background-color: #ffffff !important;
-    color: #000000 !important;
-    font-size: 11pt;
+    color: #09090b !important;
+    font-size: 9.5pt !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   header,
@@ -173,32 +191,104 @@
     display: none !important;
   }
 
-  .card-minimal {
-    box-shadow: none !important;
-    border: 1px solid #d4d4d8 !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-    margin-bottom: 1rem !important;
+  /* Prevent containers from creating excessive margins/paddings */
+  .container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
   }
 
   section {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    border-top: none !important;
   }
 
-  p,
-  span,
+  #experience {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-top: none !important;
+  }
+
+  /* Prevent headings and titles from being orphaned at the bottom of a page */
   h1,
   h2,
   h3,
   h4,
-  li {
-    color: #000000 !important;
+  h5,
+  h6,
+  [data-title],
+  .print-break-after-avoid {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
-  .tag {
-    border: 1px solid #a1a1aa !important;
+  /* Card print behavior: no forced borders or paddings, let print utilities control layout */
+  .card-minimal {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
     background-color: #ffffff !important;
-    color: #000000 !important;
+  }
+
+  /* Typography density in print */
+  p,
+  li {
+    color: #27272a !important;
+    font-size: 9pt !important;
+    line-height: 1.35 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1 {
+    font-size: 15pt !important;
+    color: #09090b !important;
+  }
+
+  h2 {
+    font-size: 12pt !important;
+    color: #09090b !important;
+  }
+
+  h3 {
+    font-size: 10.5pt !important;
+    color: #09090b !important;
+  }
+
+  h4 {
+    font-size: 8.5pt !important;
+    color: #52525b !important;
+  }
+
+  /* Tags in print: borderless and minimal */
+  .tag {
+    border: none !important;
+    background-color: transparent !important;
+    color: #09090b !important;
+    font-size: 8.5pt !important;
+    padding: 0 !important;
+  }
+
+  /* Compact prose within work experiences */
+  .prose {
+    font-size: 9pt !important;
+  }
+
+  .prose p {
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .prose ul {
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.25rem !important;
+    padding-left: 1.25rem !important;
+  }
+
+  .prose li {
+    margin-top: 0.05rem !important;
+    margin-bottom: 0.05rem !important;
   }
 }
