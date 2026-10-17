@@ -102,3 +102,24 @@ Elements using Framer Motion mount with inline `opacity: 0` before scrolling. In
   }
   ```
 - **Native Browser Headers/Footers Trap**: Never attempt to remove browser headers (date, URL) with `@page { margin: 0 }`, as this strips all physical page margins and pushes text to the physical edge of the paper. Browser headers/footers must be unchecked once by the user in the print dialog.
+
+---
+
+## 5. Collapsing Header & Scroll Stability Architecture
+
+### A. Preventing Mobile Scroll Oscillation / Jitter Loop
+
+> [!CAUTION]
+> **Never dynamically shrink or grow an element in the normal document flow based on `window.scrollY`.**
+
+- **The Pitfall**: When a `sticky top-0` header collapses by $\Delta h$ (e.g. from 185px to 99px, $\Delta h = 86px$):
+  - On mobile touch devices, the touch gesture is anchored to the touched element in `<main>`.
+  - When the header shrinks, `<main>` shifts up by 86px, which pulls `window.scrollY` backwards below the trigger threshold.
+  - The header expands back, pushing `<main>` down, triggering the collapse threshold again.
+  - This creates an uncontrollable 60fps flapping / jitter loop near the scroll boundary.
+- **The Solution**:
+  1. Position the animated header as `fixed top-0 left-0 right-0 z-50`.
+  2. Keep an invisible, non-interactive placeholder (`aria-hidden="true"`, `print:hidden`) in the normal document flow with the exact expanded height.
+  3. Because the placeholder in document flow **never changes height**, collapsing or expanding the header produces **0px layout shift** ($\Delta h = 0$), guaranteeing total scroll stability.
+  4. Always add `whitespace-nowrap` to inline collapsible spans (e.g. `/ Senior Full-Stack`) so that `max-w-0` does not cause invisible text to wrap into a multi-line vertical column that alters the line height.
+  5. Use dual-threshold hysteresis ($T_{\text{collapse}} = 80px$, $T_{\text{expand}} = 25px$) throttled via `requestAnimationFrame`.
