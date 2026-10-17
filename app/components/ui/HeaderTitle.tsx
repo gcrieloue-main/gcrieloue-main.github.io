@@ -21,13 +21,34 @@ export const HeaderTitle = ({
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    let rafId: number | null = null;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        setIsScrolled((prev) => {
+          // Collapse header only when scrolled down past 80px
+          if (!prev && scrollY > 80) {
+            return true;
+          }
+          // Restore full header only when scrolled back near the top (< 25px)
+          if (prev && scrollY < 25) {
+            return false;
+          }
+          return prev;
+        });
+        rafId = null;
+      });
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   return (
@@ -41,28 +62,28 @@ export const HeaderTitle = ({
           isScrolled ? "py-2.5 md:py-3" : "py-6 md:py-8"
         }`}
       >
-        <div
-          className={`flex flex-col transition-all duration-300 ease-in-out md:flex-row md:justify-between ${
-            isScrolled ? "gap-2 md:items-center" : "gap-6 md:items-end"
-          }`}
-        >
+        <div className="flex flex-col gap-3 transition-all duration-300 ease-in-out md:flex-row md:items-center md:justify-between">
           {/* Identity & Status */}
           <div className="flex flex-col justify-center">
             {/* Availability status badge - hides smoothly on scroll */}
             <div
-              className={`flex items-center gap-2.5 transition-all duration-300 ease-in-out ${
+              className={`grid transition-all duration-300 ease-in-out ${
                 isScrolled
-                  ? "pointer-events-none mb-0 max-h-0 -translate-y-1 overflow-hidden opacity-0"
-                  : "mb-2.5 max-h-8 translate-y-0 opacity-100"
+                  ? "pointer-events-none grid-rows-[0fr] opacity-0"
+                  : "grid-rows-[1fr] opacity-100"
               }`}
             >
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-              </span>
-              <span className="font-mono text-xs font-medium tracking-wide text-zinc-500 uppercase">
-                Disponible pour missions • Nantes / Remote
-              </span>
+              <div className="overflow-hidden">
+                <div className="flex items-center gap-2.5 pb-2">
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                  </span>
+                  <span className="font-mono text-xs font-medium tracking-wide text-zinc-500 uppercase">
+                    Disponible pour missions • Nantes / Remote
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Title & Compact Subtitle on scroll */}
@@ -79,7 +100,7 @@ export const HeaderTitle = ({
 
               {/* In scrolled mode, show a discreet short label inline */}
               <span
-                className={`hidden font-mono text-xs text-zinc-400 transition-all duration-300 ease-in-out sm:inline ${
+                className={`hidden items-center font-mono text-xs text-zinc-400 transition-all duration-300 ease-in-out sm:inline-flex ${
                   isScrolled
                     ? "max-w-xs opacity-100"
                     : "pointer-events-none max-w-0 overflow-hidden opacity-0"
@@ -90,23 +111,23 @@ export const HeaderTitle = ({
             </div>
 
             {/* Full Subtitle - folds away smoothly on scroll */}
-            <p
-              className={`max-w-xl text-sm font-normal text-zinc-600 transition-all duration-300 ease-in-out md:text-base ${
+            <div
+              className={`grid transition-all duration-300 ease-in-out ${
                 isScrolled
-                  ? "pointer-events-none mt-0 max-h-0 -translate-y-1 overflow-hidden opacity-0"
-                  : "mt-1.5 max-h-12 translate-y-0 opacity-100"
+                  ? "pointer-events-none grid-rows-[0fr] opacity-0"
+                  : "grid-rows-[1fr] opacity-100"
               }`}
             >
-              {subtitleText}
-            </p>
+              <div className="overflow-hidden">
+                <p className="max-w-xl pt-1.5 text-sm font-normal text-zinc-600 md:text-base">
+                  {subtitleText}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Navigation & External Links */}
-          <div
-            className={`flex flex-wrap items-center justify-between gap-4 transition-all duration-300 md:justify-end ${
-              isScrolled ? "pt-0" : "pt-2 md:pt-0"
-            }`}
-          >
+          <div className="flex flex-wrap items-center justify-between gap-4 md:justify-end">
             {/* Nav Tabs */}
             <nav className="flex items-center gap-1 rounded-lg border border-zinc-200/60 bg-zinc-100/80 p-1 text-xs font-medium">
               <Link
