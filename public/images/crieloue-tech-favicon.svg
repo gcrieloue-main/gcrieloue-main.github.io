@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <!-- White background with slightly rounded corners and hairline border -->
+  <rect x="0.5" y="0.5" width="39" height="39" rx="8" fill="#ffffff" stroke="#e4e4e7" stroke-width="1" />
+
+  <!-- Monogramme C en Noir intense -->
+  <path d="M 32.2 11 A 14 14 0 1 0 32.2 29" 
+        stroke="#09090b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Chevron prompt > en Zinc-500 -->
+  <path d="M 19.8 15.5 L 24.8 20 L 19.8 24.5" 
+        stroke="#71717a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Pastille statut Émeraude -->
+  <circle cx="31.5" cy="20" r="2.4" fill="#10b981" />
+</svg>
