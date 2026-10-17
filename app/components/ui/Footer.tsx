@@ -77,7 +77,14 @@ export const Footer = () => {
         </div>
 
         <div className="mt-12 flex items-center justify-end border-t border-zinc-100 pt-6 font-mono text-[11px] text-zinc-400">
-          <div>© {new Date().getFullYear()} Gilles Crieloue</div>
+          <div className="flex items-center gap-1.5 text-zinc-500">
+            <img
+              src="/images/crieloue-tech-mark.svg"
+              alt="CRIELOUE Tech"
+              className="h-3.5 w-3.5"
+            />
+            <span>CRIELOUE Tech</span>
+          </div>
         </div>
       </div>
     </footer>
