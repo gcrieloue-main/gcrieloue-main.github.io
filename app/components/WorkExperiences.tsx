@@ -184,7 +184,7 @@ export function WorkExperiences() {
               "Ldap, Apache, Tomcat",
               "Git, Sonar, Jenkins",
             ]}
-            logoSrc="images/sncf-light.png"
+            logoSrc="images/sncf-color.png"
           >
             <p>
               Rôle : Référent technique <em>(au sein de Capgemini)</em>
@@ -232,7 +232,7 @@ export function WorkExperiences() {
             date="12/2015 - 12/2015"
             title="SNCF (Mobilité)"
             skills={["Java, Android", "Eclipse, Android Studio", "GIT, RTC"]}
-            logoSrc="images/sncf-light.png"
+            logoSrc="images/sncf-color.png"
           >
             <p>
               Rôle : Développeur d'applications mobiles

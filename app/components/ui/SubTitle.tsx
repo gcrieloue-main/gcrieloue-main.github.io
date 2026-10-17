@@ -9,6 +9,7 @@ interface TitleProps {
   className?: string;
   alternative?: "light" | "dark";
   decorationText?: string;
+  logoSrc?: string;
 }
 
 const SubTitle = ({
@@ -16,17 +17,35 @@ const SubTitle = ({
   subTitle,
   level = "h3",
   className = "",
+  logoSrc,
 }: TitleProps) => {
   const Tag = level;
+  const resolvedLogo = logoSrc
+    ? logoSrc.startsWith("/")
+      ? logoSrc
+      : `/${logoSrc}`
+    : undefined;
 
   return (
     <div
-      className={`flex flex-col gap-1 border-b border-zinc-100 pb-2 sm:flex-row sm:items-baseline sm:justify-between print:break-after-avoid print:border-b-0 print:pb-0.5 ${className}`}
+      className={`flex flex-col gap-2 border-b border-zinc-100 pb-3 sm:flex-row sm:items-center sm:justify-between print:break-after-avoid print:border-b-0 print:pb-0.5 ${className}`}
       style={{ breakAfter: "avoid", pageBreakAfter: "avoid" }}
     >
-      <Tag className="text-lg font-semibold tracking-tight text-zinc-950 md:text-xl print:text-sm">
-        {children}
-      </Tag>
+      <div className="flex min-w-0 items-center gap-3">
+        {resolvedLogo && (
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-200/70 bg-white p-1.5 shadow-2xs print:h-6 print:w-6 print:border-zinc-200 print:p-0.5">
+            <img
+              src={resolvedLogo}
+              alt=""
+              className="max-h-full max-w-full object-contain print:grayscale"
+              loading="lazy"
+            />
+          </div>
+        )}
+        <Tag className="text-lg font-semibold tracking-tight text-zinc-950 md:text-xl print:text-sm">
+          {children}
+        </Tag>
+      </div>
       {subTitle && (
         <span className="shrink-0 font-mono text-xs font-normal text-zinc-500 print:text-[10px]">
           {subTitle}
