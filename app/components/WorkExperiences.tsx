@@ -4,8 +4,9 @@ import Title from "./ui/Title";
 
 export function WorkExperiences() {
   return (
-    <div
+    <section
       id="experience"
+      aria-label="Expériences professionnelles"
       className="relative w-full border-t border-zinc-200/80 bg-zinc-50/40 py-16 text-zinc-900 md:py-24 print:break-before-page print:border-t-0 print:bg-transparent print:p-0 print:pt-4"
     >
       <div className="container mx-auto max-w-6xl px-6 print:p-0">
@@ -30,8 +31,8 @@ export function WorkExperiences() {
               "Agents IA: python, Google <em>Agent Development Kit</em>, LLM <em>Gemini</em>",
             ]}
           >
-            <p>Rôle : Dévelopeur full stack senior</p>
-            <h4>Mission: </h4>
+            <p>Rôle : Développeur full stack senior</p>
+            <h4>Mission :</h4>
             <ul>
               <li>
                 Évolution d’une application de restitution des performances
@@ -57,8 +58,8 @@ export function WorkExperiences() {
               "Pattern BFF, monorepo",
             ]}
           >
-            <p>Rôle: Développeur full stack senior</p>
-            <h4>Mission : </h4>
+            <p>Rôle : Développeur full stack senior</p>
+            <h4>Mission :</h4>
             <ul>
               <li>
                 participer au développement des nouvelles applications SNCF
@@ -84,7 +85,8 @@ export function WorkExperiences() {
             ]}
           >
             <p>Rôle : Développeur full stack senior</p>
-            <p>Mission : participer aux activités de l'équipe en charge </p>
+            <h4>Mission :</h4>
+            <p>Participation aux activités de l'équipe en charge :</p>
             <ul>
               <li>
                 des données relatives au <strong>compte client</strong> ainsi
@@ -109,15 +111,13 @@ export function WorkExperiences() {
           >
             <p>Rôle : Membre de la fabrique logicielle de DSIA.</p>
             <p>
-              Mission : La suite logicielle de DSIA couvre l'ensemble des
-              activités Supply Chain.
-              <br />
-              Cette suite permet aussi bien la synchronisation de l'offre et des
-              demandes d'approvisionnements, que l'optimisation des entrepôts et
-              des transports. Elle permet également le pilotage et le monitoring
-              de toute la Supply Chain.
+              La suite logicielle de DSIA couvre l'ensemble des activités Supply
+              Chain. Cette suite permet aussi bien la synchronisation de l'offre
+              et des demandes d'approvisionnements, que l'optimisation des
+              entrepôts et des transports. Elle permet également le pilotage et
+              le monitoring de toute la Supply Chain.
             </p>
-            <p>Objectifs</p>
+            <h4>Mission :</h4>
             <ul>
               <li>
                 travaux sur les socles techniques communs aux applications front
@@ -147,13 +147,13 @@ export function WorkExperiences() {
               <em>(au sein de Daveo)</em>
             </p>
             <p>
-              Mission : Traveldoo offre une suite logicielle Saas permettant la
+              Traveldoo offre une suite logicielle SaaS permettant la
               réservation de voyages et la gestion des notes de frais dans le
               cadre professionnel. J'interviens sur la partie administration
               permettant de configurer ces modules pour les clients de
               Traveldoo.
             </p>
-            <p>Objectifs :</p>
+            <h4>Mission :</h4>
             <ul>
               <li>tech lead (équipe de 10 personnes)</li>
               <li>backup chef de projet / pilotage</li>
@@ -176,8 +176,6 @@ export function WorkExperiences() {
               "RAML, JSON, NoSQL",
               "Cloudera, HBase, SolR, Hue, Redis, Kafka",
               "Apache, JBoss",
-              "Git, Sonar, Jenkins",
-              "Java, Eclipse, IntelliJ Idea",
               "RAML, REST",
               "HTML/CSS/AngularJS",
               "OpenID Connect, OpenAM",
@@ -193,11 +191,10 @@ export function WorkExperiences() {
               Application "Référentiel Client Unique"
             </h4>
             <p>
-              Mission : Le SI de la SNCF souhaite construire un référentiel
-              client enrichi et personnalisé pour apporter plus d'efficacité
-              commerciale.
+              Le SI de la SNCF souhaite construire un référentiel client enrichi
+              et personnalisé pour apporter plus d'efficacité commerciale.
             </p>
-            <p>Objectifs :</p>
+            <h4>Mission :</h4>
             <ul>
               <li>conception et développement de services REST</li>
               <li>conception de la publication des données dans Kafka</li>
@@ -208,11 +205,10 @@ export function WorkExperiences() {
               SNCF")
             </h4>
             <p>
-              Mission : Le SI de la SNCF souhaite une page d'authentification
-              commune à tous les espaces clients de la SNCF (Voyage SNCF, ter,
-              etc.).
+              Le SI de la SNCF souhaite une page d'authentification commune à
+              tous les espaces clients de la SNCF (Voyage SNCF, ter, etc.).
             </p>
-            <p>Objectifs :</p>
+            <h4>Mission :</h4>
             <ul>
               <li>
                 conception et développement de services REST manipulant ldap et
@@ -235,10 +231,10 @@ export function WorkExperiences() {
             logoSrc="images/sncf-color.png"
           >
             <p>
-              Rôle : Développeur d'applications mobiles
+              Rôle : Développeur d'applications mobiles{" "}
               <em>(au sein de Capgemini)</em>
             </p>
-            <h4>Mission : </h4>
+            <h4>Mission :</h4>
             <ul>
               <li>
                 développements sur une application utilisée par les agents à
@@ -256,18 +252,18 @@ export function WorkExperiences() {
             title="Elior"
             skills={[
               "VB .NET, C#, Framework 3.5",
-              "Windows Forms, WCF,",
+              "Windows Forms, WCF",
               "MVC .NET 5.0, JQuery, Twitter Bootstrap",
-              "SQL Server 212,",
+              "SQL Server 212",
               "Visual Studio 2012",
               "TFS",
             ]}
             logoSrc="images/elior.svg"
           >
             <p>
-              Rôle : Ingénieur Logiciel confirmé <em>(au sein de Capgemini)</em>
+              Rôle : Ingénieur logiciel confirmé <em>(au sein de Capgemini)</em>
             </p>
-            <p>Mission :</p>
+            <h4>Mission :</h4>
             <ul>
               <li>
                 migration d'un parc d'applications du groupe Elior, de bases de
@@ -284,8 +280,8 @@ export function WorkExperiences() {
             date="07/2013 - 09/2014"
             title="Ministère des sports"
             skills={[
-              ".NET 4.0, MVC 3.0, Razor, ",
-              "Entity Framework 4.4,",
+              ".NET 4.0, MVC 3.0, Razor",
+              "Entity Framework 4.4",
               "JQUERY, HTML 5, CSS 3",
               "SQL SERVER 2008R2",
               "Visual Studio 2010",
@@ -300,7 +296,7 @@ export function WorkExperiences() {
               Educateurs sportifs et établissements d'activités physiques et
               sportives
             </h4>
-            <p>Télé-procédure</p>
+            <h4>Télé-procédure</h4>
             <ul>
               <li>
                 conception et mise en oeuvre d'un portail web pour la
@@ -314,7 +310,7 @@ export function WorkExperiences() {
               <li>gestion de l'équipe de développement ;</li>
               <li>développement / Suivi.</li>
             </ul>
-            <p>BackOffice</p>
+            <h4>BackOffice</h4>
             <ul>
               <li>
                 évolutions sur l'application intranet EAPS et le module contrôle
@@ -339,93 +335,35 @@ export function WorkExperiences() {
             logoSrc="images/marianne.png"
           >
             <p>
-              Rôle : Responsable technique sur un centre de services, composé de
-              plusieurs projets (<em>au sein de Capgemini</em>)
+              Rôle : Responsable technique <em>(au sein de Capgemini)</em>
             </p>
-            <h4 id="centrenationaldedveloppementdusportcnds">
-              Centre National de Développement du Sport (CNDS)
-            </h4>
-            <h4 className="print:hidden">Mission : </h4>
-            <ul>
-              <li>
-                développement et tests pour un lot d'évolution sur Orassamis,
-                une application de gestion des subventions aux clubs de sport.
-              </li>
-            </ul>
-            <div className="print:hidden">
-              <p>Rôle : </p>
-              <ul>
-                <li>conception,</li>
-                <li>développement,</li>
-                <li>suivi de la qualité (CAST, Jenkins),</li>
-                <li>migration de Framework</li>
-              </ul>
-            </div>
-            <h4 id="securitas">Securitas</h4>
-            <h4 className="print:hidden">Mission : </h4>
-            <ul>
-              <li>
-                développement et tests pour un lot d'évolutions sur une
-                application permettant d'organiser le travail des agents de
-                sécurité de Securitas (documentation, calendrier, suivi des
-                missions, rondes, etc.)
-              </li>
-              <li>
-                migration du framework de l'application Vision et réorganisation
-                complête des solutions et projets Visual Studio
-              </li>
-            </ul>
-            <div className="print:hidden">
-              <p>Rôle : </p>
-              <ul>
-                <li>conception,</li>
-                <li>développement,</li>
-                <li>suivi de la qualité (CAST, Jenkins),</li>
-                <li>migration de Framework</li>
-              </ul>
-            </div>
-            <h4 id="groupementdintrtpublicdemodernisationdesdclarationssocialesgip">
-              Groupement d'Intérêt Public de Modernisation des déclarations
-              sociales (GIP)
-            </h4>
-            <h4 className="print:hidden">Mission : </h4>
-            <ul>
-              <li>
-                évolution des batchs de modification en masse pour ajouter la
-                suppression, modification des IHM afin d'ajouter un nouveau
-                service.
-              </li>
-              <li>
-                développement de batchs et d'IHM pour le site NET-ENTREPRISES.FR
-                (permettant aux entreprises de faciliter leurs déclarations
-                sociales).
-              </li>
-            </ul>
-            <p className="print:hidden">Rôle : Conception,développement</p>
-            <h4 id="agencenationalepourlarechercheanr">
-              Agence Nationale pour la Recherche (ANR)
-            </h4>
             <p>
-              L'application de l'ANR permet la soumission, l'évaluation, le
-              financement et son suivi des projets de recherche.
+              Pilotage technique et réalisations au sein d'un centre de services
+              multi-projets :
             </p>
-            <h4 className="print:hidden">Mission : </h4>
+            <h4>Mission :</h4>
             <ul>
               <li>
-                MCO et développement de lots d'évolution sur l'application SIM.
+                CNDS : développement et tests pour un lot d'évolutions sur
+                Orassamis (gestion des subventions aux clubs de sport),
+                migration de framework et suivi qualité (CAST, Jenkins).
               </li>
               <li>
-                réalisation d'un ETL pour importer les données partenaires d'un
-                fichier CSV vers l'application SIM.
+                Securitas : évolutions sur l'application Vision (organisation du
+                travail des agents de sécurité), migration du framework et
+                réorganisation complète des solutions Visual Studio.
+              </li>
+              <li>
+                GIP : évolution des batchs de traitement en masse et
+                développements d'IHM pour le site NET-ENTREPRISES.FR
+                (déclarations sociales).
+              </li>
+              <li>
+                ANR : MCO et développements sur l'application SIM (gestion et
+                financement des projets de recherche) et réalisation d'un ETL
+                pour l'import de données partenaires.
               </li>
             </ul>
-            <div className="print:hidden">
-              <p>Rôle : </p>
-              <ul>
-                <li>conception,</li>
-                <li>développement</li>
-              </ul>
-            </div>
           </WorkExperience>
           <WorkExperience
             date="11/2010 - 03/2011"
@@ -438,11 +376,12 @@ export function WorkExperiences() {
             ]}
             logoSrc="images/marianne.png"
           >
+            <p>Rôle : Développeur</p>
             <p>
               Développement des modules applicatifs de service du projet RSP (3
               modules applicatifs pour 180 services)
             </p>
-            <p>Mission :</p>
+            <h4>Mission :</h4>
             <ul>
               <li>
                 développement + Tu des offres de services de modules applicatifs
@@ -453,6 +392,6 @@ export function WorkExperiences() {
           </WorkExperience>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
