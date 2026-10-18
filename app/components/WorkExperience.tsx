@@ -34,7 +34,7 @@ export const WorkExperience: FC<PropsWithChildren<WorkExperienceProps>> = ({
       </SubTitle>
 
       <div className="mt-5 space-y-6 print:mt-2 print:space-y-2">
-        <div className="prose prose-zinc prose-p:text-sm prose-p:leading-relaxed prose-p:text-zinc-600 prose-ul:text-sm prose-ul:text-zinc-600 prose-li:my-1 prose-h4:text-xs prose-h4:font-mono prose-h4:font-semibold prose-h4:text-zinc-500 prose-h4:uppercase prose-h4:tracking-wider prose-h4:mb-2 print:prose-p:my-1 print:prose-p:text-[9pt] print:prose-p:leading-relaxed print:prose-ul:my-1 print:prose-ul:text-[8.5pt] print:prose-li:my-0.5 print:prose-h4:mb-1 print:prose-h4:text-[8pt] max-w-none">
+        <div className="prose prose-zinc prose-p:text-sm prose-p:leading-relaxed prose-p:text-zinc-600 prose-ul:text-sm prose-ul:text-zinc-600 prose-ul:mt-1.5 prose-ol:mt-1.5 prose-li:my-1 prose-h4:text-xs prose-h4:font-mono prose-h4:font-semibold prose-h4:text-zinc-500 prose-h4:uppercase prose-h4:tracking-wider prose-h4:mb-2 print:prose-p:my-1 print:prose-p:text-[9pt] print:prose-p:leading-relaxed print:prose-ul:my-1 print:prose-ul:text-[8.5pt] print:prose-li:my-0.5 print:prose-h4:mb-1 print:prose-h4:text-[8pt] max-w-none [&_h4:has(+ol)]:mb-1.5 [&_h4:has(+ul)]:mb-1.5 [&_p:has(+ol)]:mb-1.5 [&_p:has(+ul)]:mb-1.5">
           {children}
         </div>
 
