@@ -5,46 +5,45 @@ import Title from "./ui/Title";
 export const Skills = () => {
   const skillCategories = [
     {
-      title: "Langages",
+      title: "Langages & IA",
       icon: <Code2 className="h-4 w-4 text-zinc-500" />,
-      skills: ["Java", "Kotlin", "TypeScript", "JavaScript", "SQL", "Python"],
+      skills: [
+        "Java",
+        "Kotlin",
+        "TypeScript",
+        "Python",
+        "SQL",
+        "Agents IA & LLM",
+      ],
     },
     {
-      title: "Frameworks & Écosystèmes",
+      title: "Frameworks",
       icon: <Layers className="h-4 w-4 text-zinc-500" />,
-      skills: [
-        "Spring Boot",
-        "React",
-        "React Router",
-        "Vue.js",
-        "Angular",
-        "Node.js",
-        "Tailwind CSS",
-      ],
+      skills: ["Spring Boot", "React", "Next.js", "Node.js", "Tailwind CSS"],
     },
     {
       title: "Cloud & Données",
       icon: <Cloud className="h-4 w-4 text-zinc-500" />,
       skills: [
-        "AWS (Lambda, API Gateway...)",
         "GCP",
+        "AWS (Lambda, Serverless)",
         "Kubernetes",
         "PostgreSQL",
-        "MongoDB",
         "Redis",
-        "Oracle",
+        "MongoDB",
       ],
     },
     {
-      title: "DevOps & Méthodes",
+      title: "DevOps & Architecture",
       icon: <GitBranch className="h-4 w-4 text-zinc-500" />,
       skills: [
+        "Pattern BFF",
+        "Software Craftsmanship",
         "GitOps (Flux)",
         "GitHub Actions",
         "GitLab CI",
         "Terraform",
         "Docker",
-        "Scrum / Agile",
       ],
     },
   ];
