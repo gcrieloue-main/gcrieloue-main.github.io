@@ -292,30 +292,27 @@ export function WorkExperiences() {
             <p>
               Rôle : Responsable technique <em>(au sein de Capgemini)</em>
             </p>
-            <h4 id="educateurssportifsettablissementsdactivitsphysiquesetsportives">
-              Educateurs sportifs et établissements d'activités physiques et
-              sportives
-            </h4>
-            <h4>Télé-procédure</h4>
+            <p>
+              Projet EAPS (Éducateurs sportifs et établissements d'activités
+              physiques et sportives) :
+            </p>
+            <h4>Mission :</h4>
             <ul>
               <li>
-                conception et mise en oeuvre d'un portail web pour la
-                déclaration des éducateurs sportifs ;
+                conception de l'architecture, rédaction et présentation du DAT
+                (document d'architecture technique) ;
               </li>
               <li>
-                rédaction et présentation au client du DAT (document
-                d'architecture technique) ;
+                gestion de l'équipe de développement, suivi et développement ;
               </li>
-              <li>conception de l'architecture ;</li>
-              <li>gestion de l'équipe de développement ;</li>
-              <li>développement / Suivi.</li>
-            </ul>
-            <h4>BackOffice</h4>
-            <ul>
               <li>
-                évolutions sur l'application intranet EAPS et le module contrôle
-                pour ajouter les contrôles automatiques vers les services du
-                Ministère de la justice afin de contrôler les éducateurs.
+                télé-procédure : conception et mise en œuvre d'un portail web
+                pour la déclaration des éducateurs sportifs ;
+              </li>
+              <li>
+                back-office : évolutions sur l'intranet EAPS et ajout de
+                contrôles automatiques vers les services du Ministère de la
+                Justice.
               </li>
             </ul>
           </WorkExperience>
